@@ -1,0 +1,119 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+
+ul.main_menu{margin: 0 15px 0 15px;padding: 0;width: 100%;float: left;position: relative;}
+ul.main_menu li{list-style: none;float: left;}
+ul.main_menu li a{font-family: 'gotham-bold';color: #000;text-transform: uppercase;float: left;line-height: 50px;padding-right: 75px;text-decoration: none;transition: all .3s ease;-webkit-transition: all .3s ease;-moz-transition: all .3s ease;position: relative;z-index: 99;}
+ul.main_menu li:last-child a{padding-right: 0px;}
+ul.main_menu > li:hover > a{color: rgba(255,255,255,.8);border-bottom: 6px solid #8cc63f;}
+ul.main_menu > li:hover > ul{display: block;}
+ul.main_menu > li > ul{z-index: 10; float: left;margin: -6px 0px 0px 0px;padding: 20px 15px 8px;position: absolute;top: 100%;background: #ecf2fa;width: 310px;display: none;}
+ul.main_menu > li > ul > li{list-style: none;width: 100%;float:left;}
+ul.main_menu > li > ul > li > a{text-decoration: none;width: 100%;float:left;text-transform: none;line-height: 30px;font-family: 'Arial Narrow', arial;font-size: 18px;}
+ul.main_menu > li > ul > li:hover > a{color: #8cc63f;border-bottom: none;}
+ul.main_menu > li > ul .main_menu_hover_content{color: #dce0e3;float: right;text-transform: uppercase;font-size: 18px;font-family: 'gotham-book';}
+
+ul.main_menu > li > ul > li:hover > ul{
+    display: block;
+}
+ul.main_menu > li > ul > li > ul > li:hover ul{
+    display: block;
+}
+ul.main_menu > li > ul > li{
+    position: relative;
+}
+ul.main_menu > li > ul > li  ul{  float: left;margin: 0px 0px 0px 0px;padding: 20px 15px 8px;position: absolute;background: #ecf2fa;width: 310px;display: none; left: 90%;}
+ul.main_menu > li > ul > li  ul  li{list-style: none;width: 100%;float:left;}
+ul.main_menu > li > ul > li  ul  li > a{text-decoration: none;width: 100%;float:left;text-transform: none;line-height: 30px;font-family: 'Arial Narrow', arial;font-size: 18px;}
+ul.main_menu > li > ul > li  ul  li:hover > a{color: #8cc63f;border-bottom: none;}
+ul.main_menu > li > ul .main_menu_hover_content{color: #dce0e3;float: right;text-transform: uppercase;font-size: 18px;font-family: 'gotham-book';}
