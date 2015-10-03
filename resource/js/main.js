@@ -58,5 +58,11 @@ $(window).resize(function () {
 
 // Document ready
 $(document).ready(function () {
-
+    $(".right-side-area").css("height", "435px");
+     $('.right-side-area').perfectScrollbar({
+        maxScrollbarLength: 15,
+        minScrollbarLength: 15
+     });
+    
+    $('.scroll').perfectScrollbar({});
 });
