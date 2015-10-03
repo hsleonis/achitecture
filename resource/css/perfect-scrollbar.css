@@ -42,7 +42,7 @@
       border-radius: 4px;
       -webkit-transition: background-color .2s linear;
       -moz-transition: background-color .2s linear;
-      -o-transition: background-color .2s linear;
+      -o-transition: background-agescolor .2s linear;
       transition: background-color .2s linear;
       bottom: 0;
       /* there must be 'bottom' for ps-scrollbar-x */
@@ -64,7 +64,7 @@
       /* please don't change 'position' */
         cursor: pointer;
         height: 15px !important;
-        background: url(../images/arrow.png) no-repeat;
+        background: url(../img/arrow.png) no-repeat;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
       -ms-border-radius: 4px;

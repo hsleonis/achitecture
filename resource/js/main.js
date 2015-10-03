@@ -48,7 +48,7 @@ function slideRight(item) {
 
 // Images loader
 $('img').error(function(){
-    $(this).attr('src', "resources/img/imgloader.gif");
+    $(this).attr('src', "resource/img/imgloader.gif");
 });
 
 // Window resize
