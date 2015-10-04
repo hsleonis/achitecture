@@ -60,7 +60,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: "/project/:slug",
             views: {
                 "mainView": {
-                    templateUrl: "views/listview.html",
+                    templateUrl: "views/listView.html",
                     controller: "rightPanelController"
                 }
             }
@@ -69,7 +69,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: "/project/type/:slug",
             views: {
                 "mainView": {
-                    templateUrl: "views/listview.html",
+                    templateUrl: "views/listView.html",
                     controller: "listController"
                 }
             }

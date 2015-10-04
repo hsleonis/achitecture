@@ -208,7 +208,7 @@ table {
 /*==============================
 ======== Project List ==========
 ===============================*/
-.project-list-wrapper{
+#project-list-wrapper{
     width: 100%;
     height: 100%;
     float: left;
@@ -260,6 +260,19 @@ table {
 .project-list span{
     color: #939598;
     font-weight: 300
+}
+
+.project-image{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.project-image img {
+    min-width: 100%;
+    height: auto;
+}
+.home-slider{
+    overflow: hidden;
 }
 
 /*==============================

@@ -102,12 +102,6 @@
 
         // Menu
         $scope.pages = pages = $localStorage.pages;
-        $scope.aboutMenu = pages['aboutus'].child_pages.menu;
-        //console.log(pages);
-        $scope.adminMenu = pages['people'].child_pages.menu;
-        $scope.msgMenu = pages['messages'].child_pages.menu;
-        $scope.contactMenu = pages['contact-us'].child_pages.menu;
-
     });
     // ========================================================== //
 
@@ -183,7 +177,7 @@
     // ========================================================== //
 
     // Project List Control
-    app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
+    app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {    
         var nslug = $location.$$url.split('/');
 
         projects = $localStorage.projects;
@@ -218,7 +212,8 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();
+            $(".cssloader").hide();        
+            scrollbar();
         });
     });
     // ========================================================== //
@@ -245,7 +240,8 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();
+            $(".cssloader").hide();        
+            scrollbar();
         });
     });
     // ========================================================== //
@@ -273,7 +269,8 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();
+            $(".cssloader").hide();        
+            scrollbar();
         });
 
     });

@@ -1,0 +1,30 @@
+<div id="project-info-wrapper">
+    <div class="fix-wrapper">
+        <div class="control-box">
+            <p><a href="#">INFO ></a></p>
+
+        </div>
+        <div id="info-wrapper">
+            <div class="info-menu-wrapper">
+                <ul class="info-menu">
+                    <li><a href="#">{{title|uppercase}}</a></li>
+                    <li><a href="#">{{featDetails|uppercase}},</a></li>
+                    <li><a href="#">{{project.specification[0].item_val|uppercase}}</a></li>
+                </ul>
+            </div>
+            <!--/.info-menu-wrapper-->
+        </div>
+        <!--/#info-wrapper-->
+
+        <div style="height:435px">
+            <slick dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="true">
+                <div class="project-image" data-ng-repeat="item in project.images">
+                    <img alt="{{title}}" src="{{item.url}}" />
+                </div>
+                <span>{{$index}}</span>
+            </slick>
+        </div>
+    </div>
+    <!--/.fix-wrapper-->
+</div>
+<!--/#project-info-wrapper-->
