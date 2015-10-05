@@ -56,7 +56,6 @@ function scrollbar(){
     var full = $(window).height();
     var h = (full - 143.8)*0.67;
     //if(h>435) h=435;
-    console.log(h);
     $(".height-wrapper").css("height", h+"px");
     $('.right-side-area').perfectScrollbar({
         maxScrollbarLength: 15,
