@@ -275,6 +275,9 @@ table {
 .slick-slider{
     overflow: hidden;
 }
+.slick-slide img{
+    width: 100%;
+}
 
 /*==============================
 ======== Project Info ==========
