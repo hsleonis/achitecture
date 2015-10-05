@@ -53,25 +53,24 @@ $('img').error(function(){
 
 // Initialize scrollbar
 function scrollbar(){
-    $(".right-side-area").css("height", "435px");
+    var full = $(window).height();
+    var h = (full - 143.8)*0.67;
+    //if(h>435) h=435;
+    console.log(h);
+    $(".height-wrapper").css("height", h+"px");
     $('.right-side-area').perfectScrollbar({
         maxScrollbarLength: 15,
         minScrollbarLength: 15
-     });
+    });
 }
 
 // Window resize
 $(window).resize(function () {
-
+    scrollbar();
 });
 
 // Document ready
 $(document).ready(function () {
-     $(".right-side-area").css("height", "435px");
-     $('.right-side-area').perfectScrollbar({
-        maxScrollbarLength: 15,
-        minScrollbarLength: 15
-     });
-    
+    scrollbar();
    // $('.scroll').perfectScrollbar({});
 });

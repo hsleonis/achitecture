@@ -22,10 +22,10 @@ return [
             'class' => '\kartik\grid\Module'
         ]
     ],
-    'homeUrl' => '/ark/cms/administrator',
+    'homeUrl' => '/area/cms/administrator',
     'components' => [
         'request' => [
-            'baseUrl' => '/ark/cms/administrator',
+            'baseUrl' => '/area/cms/administrator',
             'enableCsrfValidation' => false,
         ],
         'mailer' => [
@@ -71,7 +71,7 @@ return [
         ],
         'urlManagerFrontEnd' => [
             'class' => 'yii\web\urlManager',
-            'baseUrl' => '/ark/cms/frontend/web',
+            'baseUrl' => '/area/cms/frontend/web',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 

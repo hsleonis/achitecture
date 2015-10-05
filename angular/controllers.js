@@ -18,7 +18,7 @@
 (function (angular) {
 
     // GLOBALS
-    var API = "http://localhost/ark/cms/administrator/json/";
+    var API = "http://localhost/area/cms/administrator/json/";
     var company = "ARCHITECT EMRAN & ASSOCIATES.";
     var landing = [];
     var pages = [];
@@ -118,6 +118,7 @@
 
         angular.element("#main-wrapper").ready(function () {
             $(".cssloader").hide();
+            scrollbar();
         });
         
         $scope.projectCat = 0;
@@ -172,6 +173,7 @@
         // READY >>>
         angular.element("#main-wrapper").ready(function () {
             $(".cssloader").hide();
+            scrollbar();
         });
     });
     // ========================================================== //
