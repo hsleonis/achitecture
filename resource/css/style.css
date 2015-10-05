@@ -226,7 +226,6 @@ table {
     width: 100%;
     float: left;
     height: 267px;
-    background: green;
     bottom: 0;
     position: absolute;
 }
@@ -373,6 +372,10 @@ table {
 }
 .image-box {
     margin-bottom: -10px;
+    overflow: hidden;
+}
+.image-box img {
+    width: 100%;
 }
 .list-padding {
     padding-top: 20px;
