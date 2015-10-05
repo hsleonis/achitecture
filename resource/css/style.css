@@ -61,7 +61,7 @@ body{
 a{
     text-decoration: none;
     color: inherit;
-    outline: none
+    outline: none;
 }
 
 article, aside, details, figcaption, figure, 
@@ -88,7 +88,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+img{
+    background: url('../css/ajax-loader.gif') no-repeat 50% 50%;
+}
 
 
 /*==============================
