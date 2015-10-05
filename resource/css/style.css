@@ -272,6 +272,9 @@ table {
 .home-slider{
     overflow: hidden;
 }
+#content-wrapper .slick-slider{
+    overflow: hidden;
+}
 
 /*==============================
 ======== Project Info ==========
