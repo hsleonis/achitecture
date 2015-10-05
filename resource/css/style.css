@@ -108,7 +108,7 @@ table {
 #content-wrapper{
     width: 100%;
     float: left;
-    background: #5CCBF0;
+    background: #FFF;
     border: solid transparent 10px;
     border-image: url(../img/plus.png);
     box-sizing: border-box;
@@ -272,7 +272,7 @@ table {
 .home-slider{
     overflow: hidden;
 }
-#content-wrapper .slick-slider{
+.slick-slider{
     overflow: hidden;
 }
 
