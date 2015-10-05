@@ -54,6 +54,12 @@ $(document).on("click",".info-btn",function(){
     }
 });
 
+// List hover
+$(document).on("mouseover",".project-list li",function(){
+    var img = $(this).attr('data-image');
+    $(".project-view-box img").attr('src',img);
+});
+
 // Images loader
 $('img').error(function(){
     $(this).attr('src', "resource/css/ajax-loader.gif");
@@ -69,6 +75,14 @@ function scrollbar(){
         maxScrollbarLength: 15,
         minScrollbarLength: 15
     });
+    angular.element(".right-side-area").ready(function(){
+        $('.right-side-area').perfectScrollbar('update');
+    });
+}
+
+// Update scrollbar
+function scrollbarUpdate(){
+    $('.right-side-area').perfectScrollbar('update');
 }
 
 // Window resize
