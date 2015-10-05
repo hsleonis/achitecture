@@ -11,7 +11,7 @@
 
         <div class="right-side-area list-padding height-wrapper">
             <ul class="project-list">
-                <li data-ng-repeat="item in projects">
+                <li data-ng-repeat="item in projects|filter:searchProject">
                     <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
                 </li>
             </ul>

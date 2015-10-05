@@ -314,10 +314,14 @@ table {
     line-height: 13px;
 }
 
-#info-wrapper{
-    width: calc(100% - 20px);
+#info-wrapper {
+    width: calc( 100% + 20px );
     float: left;
     overflow: hidden;
+    z-index: 999;
+    top: -10px;
+    position: absolute;
+    left: -10px;
 }
 
 .info-menu-wrapper{
