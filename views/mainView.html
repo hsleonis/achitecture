@@ -2,7 +2,7 @@
         <div class="fix-wrapper-index page">
             <slick class="height-wrapper" dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="false">
                 <div class="home-slider" data-ng-repeat="item in projects|filter:{is_featured:1}">
-                    <img src="{{item.project_image}}" />
+                    <a ui-sref="projectState({slug: item.project_slug})"><img src="{{item.project_image}}" /></a>
                 </div>
             </slick>
         </div>

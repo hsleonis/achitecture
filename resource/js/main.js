@@ -31,20 +31,28 @@ function verticalResponse() {
 // Slide to left
 function slideLeft(item) {
     $(item).animate({
-        display: 'block',
-        width: 50 + '%',
-        right: 0
+        left: -100 + '%'
     }, 500);
 }
 
 // Slide to right
 function slideRight(item) {
     $(item).animate({
-        width: 0,
-        right: -50 + '%',
-        display: 'none'
+        left: 0
     }, 500);
 }
+
+// Toggle info panel
+$(document).on("click",".info-btn",function(){
+    if($(this).hasClass("info-opened")) {
+        slideLeft(".info-menu-wrapper");
+        $(this).removeClass("info-opened");
+    }
+    else {
+        slideRight(".info-menu-wrapper");
+        $(this).addClass("info-opened");
+    }
+});
 
 // Images loader
 $('img').error(function(){

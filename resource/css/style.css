@@ -330,7 +330,7 @@ img{
     float: left;
     background: #000;
     position: relative;
-    left: 0;
+    left: -100%;
 }
 
 .info-menu{
