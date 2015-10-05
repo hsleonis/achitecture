@@ -89,7 +89,7 @@ table {
 	border-spacing: 0;
 }
 img{
-    background: url('../css/ajax-loader.gif') no-repeat 50% 50%;
+    background: #FFF url('../css/ajax-loader.gif') no-repeat 50% 50%;
 }
 
 
