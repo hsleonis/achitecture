@@ -2,8 +2,7 @@
     <div class="fix-wrapper">
         <div class="left-side-area height-wrapper">
             <div class="project-view-box image-box">
-
-
+                <img ng-show="">
             </div>
             <!--/.project-view-box-->
         </div>
@@ -11,7 +10,7 @@
 
         <div class="right-side-area list-padding height-wrapper">
             <ul class="project-list">
-                <li data-ng-repeat="item in projects|filter:searchProject">
+                <li data-ng-repeat="item in data=(projects|filter:searchProject)">
                     <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
                 </li>
             </ul>
