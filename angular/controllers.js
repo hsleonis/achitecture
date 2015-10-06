@@ -108,6 +108,7 @@
     // Home controller
     app.controller('homeController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         $scope.projects = projects = $localStorage.projects;
+        $scope.$parent.hideMenu = false;
 
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
@@ -121,19 +122,13 @@
             scrollbar();
         });
         
-        $scope.projectCat = 0;
-        $scope.projectList = 'ongoing';
-        $scope.showProject = function(p){
-            if(p==1) $scope.projectList = 'completed';
-            else if(p==2) $scope.projectList = 'upcoming';
-            else $scope.projectList = 'ongoing';
-        }
     });
     // ========================================================== //
 
     // Project detail control
     app.controller('projectDetailsController', function ($scope, $http, $filter, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
+        $scope.$parent.hideMenu = false;
         
         singles = $localStorage.singles;
         if (!$localStorage.projects) {
@@ -156,15 +151,11 @@
         var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
         var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
         var index = catList.indexOf(foundItem);
-        /*console.log(catList);
-        console.info(index);*/
+
         var prv = (index>0)?(index-1):(catList.length-1);
         var nxt = (index<catList.length-1)?(index+1):0;
-        /*console.info(nxt + " " + prv);*/
         $scope.prvProject = catList[prv].project_slug;
         $scope.nxtProject = catList[nxt].project_slug;
-        /*console.info($scope.prvProject);
-        console.info($scope.nxtProject);*/
         
         $scope.title = $scope.project.title;
         $scope.featDetails = $scope.detailDesc = $scope.project.desc;
@@ -180,8 +171,9 @@
     // ========================================================== //
 
     // Project List Control
-    app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {    
+    app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
+        $scope.$parent.hideMenu = false;
 
         projects = $localStorage.projects;
 
@@ -239,7 +231,9 @@
             $scope.secondFullDesc = secondPage.page_data.page_desc;
             $scope.secondChildPage = secondPage.child_pages.menu;
             $scope.secondSlug = secondPage.page_data.page_slug;
-
+            
+            if($scope.secondSlug=='contact-us')
+                $scope.$parent.hideMenu = true;
         }
 
         angular.element("#main-wrapper").ready(function () {
