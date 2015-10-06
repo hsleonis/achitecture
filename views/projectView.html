@@ -2,6 +2,9 @@
     <div class="fix-wrapper">
         <div class="control-box">
             <p><a class="info-btn" href="#">INFO &gt;</a></p>
+            <p><a class="prv-slick">&lt;</a></p>
+            <p><a class="count-slick">1/{{project.images.length}}</a></p>
+            <p><a class="nxt-slick">&gt;</a></p>
             <p><a class="prv-project" ui-sref="projectState({slug: prvProject})">&lt; PROJECT</a></p>
             <p><a class="nxt-project" ui-sref="projectState({slug: nxtProject})">PROJECT &gt;</a></p>
             <p><a ui-sref="projectListState({slug: project.type})">BACK TO LIST</a></p>
@@ -12,7 +15,6 @@
                 <div class="project-image" data-ng-repeat="item in project.images">
                     <img alt="{{title}}" src="{{item.url}}" />
                 </div>
-                <span>{{$index}}</span>
             </slick>
         </div>
     </div>

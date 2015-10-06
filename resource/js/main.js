@@ -80,6 +80,16 @@ function scrollbar(){
     });
 }
 
+// Slick previous
+$(document).on("click",".prv-slick",function(){
+    $(".slick-prev").click();
+});
+
+// Slick next
+$(document).on("click",".nxt-slick",function(){
+    $(".slick-next").click();
+});
+
 // Update scrollbar
 function scrollbarUpdate(){
     $('.right-side-area').perfectScrollbar('update');

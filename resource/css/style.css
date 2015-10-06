@@ -269,6 +269,25 @@ img{
     min-width: 100%;
     height: auto;
 }
+
+/* */
+/*.slick-prev,
+.slick-next{
+    background: #E23;
+    z-index: 99;
+}
+.slick-prev:hover,.slick-prev:active,.slick-prev:focus,
+.slick-next:hover,.slick-next:active,.slick-next:focus{
+    background: #E45;
+}
+.slick-prev{
+    left: 0;
+}
+.slick-next{
+    right: none;
+    left: 20px;
+}*/
+
 .home-slider{
     overflow: hidden;
 }
@@ -277,6 +296,9 @@ img{
 }
 .slick-slide img{
     width: 100%;
+}
+.prv-slick, .nxt-slick{
+    cursor: pointer;
 }
 
 /*==============================
