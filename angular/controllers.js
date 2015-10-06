@@ -132,7 +132,7 @@
     // ========================================================== //
 
     // Project detail control
-    app.controller('projectDetailsController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
+    app.controller('projectDetailsController', function ($scope, $http, $filter, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         
         singles = $localStorage.singles;
@@ -142,10 +142,30 @@
                     $localStorage.singles = singles = response.project_list;
                 });
         } else {}
+        projects = $localStorage.projects;
+        if (!$localStorage.projects) {
+            $http.post(API + "project_list.json", {})
+                .success(function (response) {
+                    $localStorage.projects = projects = response.product_list;
+                });
+        } else {}
+        
         $scope.single = singles;
 
         $scope.project = singles[$stateParams.slug];
-        console.log($scope.project);
+        var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
+        var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
+        var index = catList.indexOf(foundItem);
+        /*console.log(catList);
+        console.info(index);*/
+        var prv = (index>0)?(index-1):(catList.length-1);
+        var nxt = (index<catList.length-1)?(index+1):0;
+        /*console.info(nxt + " " + prv);*/
+        $scope.prvProject = catList[prv].project_slug;
+        $scope.nxtProject = catList[nxt].project_slug;
+        /*console.info($scope.prvProject);
+        console.info($scope.nxtProject);*/
+        
         $scope.title = $scope.project.title;
         $scope.featDetails = $scope.detailDesc = $scope.project.desc;
         $scope.ptype = $scope.project.type.toLowerCase();

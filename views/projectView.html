@@ -2,8 +2,9 @@
     <div class="fix-wrapper">
         <div class="control-box">
             <p><a class="info-btn" href="#">INFO &gt;</a></p>
-            <p><a class="prv-project" ui-sref="projectViewState({slug: prvProject})">PREVIOUS PROJECT &lt;</a></p>
-            <p><a class="nxt-project" ui-sref="projectViewState({slug: nxtProject})">NEXT PROJECT &gt;</a></p>
+            <p><a class="prv-project" ui-sref="projectState({slug: prvProject})">&lt; PROJECT</a></p>
+            <p><a class="nxt-project" ui-sref="projectState({slug: nxtProject})">PROJECT &gt;</a></p>
+            <p><a ui-sref="projectListState({slug: project.type})">BACK TO LIST</a></p>
         </div>
 
         <div class="height-wrapper">
