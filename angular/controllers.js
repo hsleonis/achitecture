@@ -145,30 +145,11 @@
         $scope.single = singles;
 
         $scope.project = singles[$stateParams.slug];
+        console.log($scope.project);
         $scope.title = $scope.project.title;
         $scope.featDetails = $scope.detailDesc = $scope.project.desc;
         $scope.ptype = $scope.project.type.toLowerCase();
         document.title = $scope.project.title.toUpperCase() + " | " + company;
-        $scope.featTitle = 'AT A GLANCE';
-        
-        // Booking Form
-        var bookingData = '<form class="ng-pristine ng-valid ng-scope" action="#" method="POST"><p><label for="#">YOUR NAME</label> <input name="" type="text"></p><p><label for="#">EMAIL ADDRESS</label> <input name="" type="text"></p><p><label for="#">MOBILE NUMBER</label> <input name="" type="text"></p><p><label for="#">INTERESTED IN</label> <select name="#"><option value=""></option><option value="residential">Residential</option><option value="commercial">Commercial</option><option value="commercial cum residential">Commercial cum Residential</option><option value="other">Other</option> </select></p><p><label for="#">MESSAGE</label><textarea></textarea></p><p><input value="Send" type="submit"></p></form>';
-        
-        $scope.featData = function(a){
-            if(a==1) {
-                $scope.featDetails = $scope.detailDesc;
-                $scope.featTitle = 'AT A GLANCE';
-            }
-            else if(a==2) {
-                $scope.featDetails = $scope.title;
-                $scope.featTitle = 'FEATURES';
-            }
-            else if(a==3) {
-                $scope.featDetails = bookingData;
-                $scope.featTitle = 'BOOK NOW';
-            }
-            featOpen();
-        };
 
         // READY >>>
         angular.element("#main-wrapper").ready(function () {
