@@ -3,7 +3,8 @@
         <div class="control-box">
             <p><a class="info-btn" href="#">INFO &gt;</a></p>
             <p><a class="prv-slick">&lt;</a></p>
-            <p><a class="count-slick">1/{{project.images.length}}</a></p>
+            <p><a class="count-slick">{{currentIndex}}/{{project.images.length}}</a></p>
+            
             <p><a class="nxt-slick">&gt;</a></p>
             <p><a class="prv-project" ui-sref="projectState({slug: prvProject})">&lt; PROJECT</a></p>
             <p><a class="nxt-project" ui-sref="projectState({slug: nxtProject})">PROJECT &gt;</a></p>
@@ -11,7 +12,7 @@
         </div>
 
         <div class="height-wrapper">
-            <slick class="height-wrapper" dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="true">
+            <slick class="height-wrapper" currentIndex="0" dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="true" settings="slickConfig">
                 <div class="project-image" data-ng-repeat="item in project.images">
                     <img alt="{{title}}" src="{{item.url}}" />
                 </div>

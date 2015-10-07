@@ -151,6 +151,22 @@
         var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
         var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
         var index = catList.indexOf(foundItem);
+        
+        $scope.currentIndex = 1;
+        $scope.slickConfig = {
+            method: {},
+            event: {
+                afterChange: function (event, slick, currentSlide, nextSlide) {
+                  $scope.currentIndex = currentSlide+1; // save current index each time
+                  $scope.$apply();
+                  //console.log($scope.currentIndex);
+                },
+                init: function (event, slick) {
+                  slick.slickGoTo($scope.currentIndex); // slide to correct index when init
+                  //console.log($scope.currentIndex);
+                }
+            }
+        };
 
         var prv = (index>0)?(index-1):(catList.length-1);
         var nxt = (index<catList.length-1)?(index+1):0;
