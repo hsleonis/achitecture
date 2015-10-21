@@ -1,3 +1,18 @@
+/*
+ EMRAN ARCHITECT & ASSOCIATES. v2.1
+ (c) 2015 DCASTALIA, http://dcastalia.com
+ License: GPL v3
+ Author: MD. Hasan Shahriar
+ Author email: hsleonis2@gmail.com
+  _____   _____           _____ _______       _      _____          
+ |  __ \ / ____|   /\    / ____|__   __|/\   | |    |_   _|   /\    
+ | |  | | |       /  \  | (___    | |  /  \  | |      | |    /  \   
+ | |  | | |      / /\ \  \___ \   | | / /\ \ | |      | |   / /\ \  
+ | |__| | |____ / ____ \ ____) |  | |/ ____ \| |____ _| |_ / ____ \ 
+ |_____/ \_____/_/    \_\_____/   |_/_/    \_\______|_____/_/    \_\
+ 
+*/
+
 /*======================
 == [Table of contents] =
 ========================
@@ -96,8 +111,8 @@ img{
 ====== Template Wrapper ========
 ==============================*/
 #main-wrapper{
-    max-width: 1000px;
-    width: 90%;
+    /*max-width: 1000px;*/
+    /*width: 90%;*/
     margin: 0 auto 0;
     position: absolute;
     left: 80px;
@@ -424,42 +439,42 @@ img{
 /*maedia**/
 @media screen and (max-width: 1270px) {
    #main-wrapper{
-    max-width:900px;
+    /*max-width:900px;*/
 }
 
 }
 
 @media screen and (max-width: 1200px) {
    #main-wrapper{
-    max-width:700px;
+    /*max-width:700px;*/
 }
 
 }
 
 @media screen and (max-width: 1000px) {
    #main-wrapper{
-    max-width:600px;
+    /*max-width:600px;*/
 }
 
 }
 
 @media screen and (max-width: 900px) {
    #main-wrapper{
-    max-width:500px;
+    /*max-width:500px;*/
 }
 
 }
 
 @media screen and (max-width: 700px) {
    #main-wrapper{
-    max-width:400px;
+    /*max-width:400px;*/
 }
 
 }
 
 @media screen and (max-width: 600px) {
    #main-wrapper{
-    max-width:300px;
+   /* max-width:300px;*/
        left: 10px;
        right: 10px;
 }
@@ -468,7 +483,7 @@ img{
 
 @media screen and (max-width: 450px) {
    #main-wrapper{
-    max-width:200px;
+    /*max-width:200px;*/
    left: 5px;
    right: 5px;
 }

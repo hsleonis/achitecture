@@ -28,14 +28,14 @@ function verticalResponse() {
   $(".row-10").height(l + "px");
 };
 
-// Slide to left
+// Slide to Left
 function slideLeft(item) {
     $(item).animate({
         left: -100 + '%'
     }, 500);
 }
 
-// Slide to right
+// Slide to Bottom
 function slideRight(item) {
     $(item).animate({
         left: 0
@@ -68,9 +68,15 @@ $('img').error(function(){
 // Initialize scrollbar
 function scrollbar(){
     var full = $(window).height();
-    var h = (full - 143.8)*0.67;
-    //if(h>435) h=435;
+    var fullWidth = $(window).width();
+    var h = (full - 144) * 0.8;
+    var w = (h * 1.62) + 20;
+    if(fullWidth<800) {
+        w = fullWidth-80;
+        h= (w * 0.62) + 144;
+    }
     $(".height-wrapper").css("height", h+"px");
+    $("#main-wrapper").css("width",w+"px");
     $('.right-side-area').perfectScrollbar({
         maxScrollbarLength: 15,
         minScrollbarLength: 15

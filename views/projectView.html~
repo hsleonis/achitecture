@@ -12,7 +12,7 @@
         </div>
 
         <div class="height-wrapper">
-            <slick class="height-wrapper" currentIndex="0" dots="false" infinite="true" speed="700" slides-to-show="1" touch-move="false" slides-to-scroll="1" autoplay="true" autoplaySpeed="700" arrows="true" settings="slickConfig">
+            <slick class="height-wrapper" currentIndex="0" dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="true" settings="slickConfig">
                 <div class="project-image" data-ng-repeat="item in project.images">
                     <img alt="{{title}}" src="{{item.url}}" />
                 </div>
