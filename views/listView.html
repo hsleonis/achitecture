@@ -1,14 +1,14 @@
 <div id="project-list-wrapper" class="list-padding">
     <div class="fix-wrapper">
         <div class="left-side-area height-wrapper">
-            <div class="project-view-box image-box">
+            <div class="project-view-box image-box" data-ng-image-load-animation="">
                 <img ng-show="data.length" src="{{data[0].project_image}}">
             </div>
             <!--/.project-view-box-->
         </div>
         <!--/.left-side-area-->
 
-        <div class="right-side-area list-padding height-wrapper">
+        <div class="right-side-area list-padding height-wrapper" data-ng-scroll="">
             <ul class="project-list">
                 <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
                     <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]

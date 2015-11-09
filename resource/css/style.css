@@ -1,3 +1,18 @@
+/*
+ EMRAN ARCHITECT & ASSOCIATES. v2.1
+ (c) 2015 DCASTALIA, http://dcastalia.com
+ License: GPL v3
+ Author: MD. Hasan Shahriar
+ Author email: hsleonis2@gmail.com
+  _____   _____           _____ _______       _      _____          
+ |  __ \ / ____|   /\    / ____|__   __|/\   | |    |_   _|   /\    
+ | |  | | |       /  \  | (___    | |  /  \  | |      | |    /  \   
+ | |  | | |      / /\ \  \___ \   | | / /\ \ | |      | |   / /\ \  
+ | |__| | |____ / ____ \ ____) |  | |/ ____ \| |____ _| |_ / ____ \ 
+ |_____/ \_____/_/    \_\_____/   |_/_/    \_\______|_____/_/    \_\
+ 
+*/
+
 /*======================
 == [Table of contents] =
 ========================
@@ -87,22 +102,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-img{
-    background: #FFF url('../css/ajax-loader.gif') no-repeat 50% 50%;
-}
+img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicStd';-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,optgroup,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre,textarea{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}table{border-collapse:collapse;border-spacing:0}
 
 
 /*==============================
 ====== Template Wrapper ========
 ==============================*/
 #main-wrapper{
-    max-width: 1000px;
-    width: 90%;
+    /*max-width: 1000px;*/
+    /*width: 90%;*/
     margin: 0 auto 0;
     position: absolute;
-    left: 80px;
-    right: 80px;
+    left: 0px;
+    right: 0px;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -111,6 +126,8 @@ img{
     float: left;
     background: #FFF;
     border: solid transparent 10px;
+    -webkit-border-image: url(../img/plus.png);
+    -o-border-image: url(../img/plus.png);
     border-image: url(../img/plus.png);
     box-sizing: border-box;
     border-image-outset: 5px;
@@ -213,6 +230,8 @@ img{
     height: 100%;
     float: left;
     border: solid transparent 10px;
+    -webkit-border-image: url(../img/plus.png);
+    -o-border-image: url(../img/plus.png);
     border-image: url(../img/plus.png);
     border-image-outset: 5px;
 }
@@ -227,7 +246,7 @@ img{
     width: 100%;
     float: left;
     height: 267px;
-    bottom: 0;
+    top: 0px;
     position: absolute;
 }
 
@@ -239,7 +258,7 @@ img{
 }
 
 .project-list{
-    margin: 20px;
+    margin: 0 20px;
     box-sizing: border-box
 }
 
@@ -299,6 +318,8 @@ img{
 }
 .prv-slick, .nxt-slick{
     cursor: pointer;
+    width: 100%;
+    display: table;
 }
 
 /*==============================
@@ -310,6 +331,8 @@ img{
     position: relative;
     float: left;
     border: solid transparent 10px;
+    -webkit-border-image: url(../img/plus.png);
+    -o-border-image: url(../img/plus.png);
     border-image: url(../img/plus.png);
     border-image-outset: 5px;
 }
@@ -356,6 +379,7 @@ img{
 
 .info-menu{
     list-style: none;
+    padding-left: 5px;
 }
 
 .info-menu li{
@@ -371,11 +395,38 @@ img{
 /*=======================
 ======General Style======
 =======================*/
+.loader {
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    position: fixed;
+    z-index: 999;
+}
+
+.loader span {
+    top: 45%;
+    left: 45%;
+    position: relative;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+}
+
+::-moz-selection{
+  background: transparent;
+}
+::selection {
+  background: transparent;
+}
+
 .fix-wrapper-index {
-    margin: -10px -10px -10px -10px;
+    margin: -9px -10px -10px -10px;
 }
 .fix-wrapper {
     margin: -10px -30px -10px -10px;
+}
+.fix-wrapper-page{
+    margin: -20px -30px -20px -20px;
 }
 .scroll {
     position: relative;
@@ -401,20 +452,7 @@ img{
     width: 100%;
 }
 .list-padding {
-    padding-top: 20px;
-    box-sizing: border-box;
-}
-.page-padding {
-    padding: 22px 0 12px;
-}
-.page-text {
-    padding-top: 5px;
-}
-.image-box {
-    margin-bottom: -10px;
-}
-.list-padding {
-    padding-top: 20px;
+    padding-top: 0px;
     box-sizing: border-box;
 }
 .page-padding {
@@ -422,55 +460,42 @@ img{
 }
 
 /*maedia**/
-@media screen and (max-width: 1270px) {
-   #main-wrapper{
-    max-width:900px;
-}
 
+@media screen and (max-width: 1270px) {
+	#main-wrapper {/*max-width:900px;*/
+	}
 }
 
 @media screen and (max-width: 1200px) {
-   #main-wrapper{
-    max-width:700px;
-}
-
+	#main-wrapper {/*max-width:700px;*/
+	}
 }
 
 @media screen and (max-width: 1000px) {
-   #main-wrapper{
-    max-width:600px;
-}
-
+	#main-wrapper {/*max-width:600px;*/
+	}
 }
 
 @media screen and (max-width: 900px) {
-   #main-wrapper{
-    max-width:500px;
-}
-
+	#main-wrapper {/*max-width:500px;*/
+	}
 }
 
 @media screen and (max-width: 700px) {
-   #main-wrapper{
-    max-width:400px;
-}
-
+	#main-wrapper {/*max-width:400px;*/
+	}
 }
 
 @media screen and (max-width: 600px) {
-   #main-wrapper{
-    max-width:300px;
-       left: 10px;
-       right: 10px;
-}
-
+	#main-wrapper {/* max-width:300px;*/
+		left: 10px;
+		right: 10px;
+	}
 }
 
 @media screen and (max-width: 450px) {
-   #main-wrapper{
-    max-width:200px;
-   left: 5px;
-   right: 5px;
-}
-
+	#main-wrapper {/*max-width:200px;*/
+		left: 5px;
+		right: 5px;
+	}
 }

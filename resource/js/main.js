@@ -4,14 +4,9 @@
  License: GPL v3
  Author: MD. Hasan Shahriar
  Author email: hsleonis2@gmail.com
-  _____   _____           _____ _______       _      _____          
- |  __ \ / ____|   /\    / ____|__   __|/\   | |    |_   _|   /\    
- | |  | | |       /  \  | (___    | |  /  \  | |      | |    /  \   
- | |  | | |      / /\ \  \___ \   | | / /\ \ | |      | |   / /\ \  
- | |__| | |____ / ____ \ ____) |  | |/ ____ \| |____ _| |_ / ____ \ 
- |_____/ \_____/_/    \_\_____/   |_/_/    \_\______|_____/_/    \_\
- 
 */
+
+// document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
 
 // Make vertically responsive
 function verticalResponse() {
@@ -28,14 +23,14 @@ function verticalResponse() {
   $(".row-10").height(l + "px");
 };
 
-// Slide to left
+// Slide to Left
 function slideLeft(item) {
     $(item).animate({
         left: -100 + '%'
     }, 500);
 }
 
-// Slide to right
+// Slide to Bottom
 function slideRight(item) {
     $(item).animate({
         left: 0
@@ -68,16 +63,18 @@ $('img').error(function(){
 // Initialize scrollbar
 function scrollbar(){
     var full = $(window).height();
-    var h = (full - 143.8)*0.67;
-    //if(h>435) h=435;
+    var fullWidth = $(window).width();
+    var h = (full - 144) * 0.75;
+    var w = (h * 1.62) + 20;
+    if(fullWidth<=w+120) {
+        var ex = (w-fullWidth+80);
+        console.log(h+' '+w);
+        w -= ex;
+        h -= ex * 0.62;
+        console.log(h+' '+w);
+    }
     $(".height-wrapper").css("height", h+"px");
-    $('.right-side-area').perfectScrollbar({
-        maxScrollbarLength: 15,
-        minScrollbarLength: 15
-    });
-    angular.element(".right-side-area").ready(function(){
-        $('.right-side-area').perfectScrollbar('update');
-    });
+    $("#main-wrapper").css("width",w+"px");
 }
 
 // Slick previous
@@ -103,5 +100,9 @@ $(window).resize(function () {
 // Document ready
 $(document).ready(function () {
     scrollbar();
-   // $('.scroll').perfectScrollbar({});
+});
+
+// Window load
+$(window).load(function(){
+    $('.loader').css({visibility: 'hidden'});
 });

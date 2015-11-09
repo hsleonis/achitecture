@@ -15,7 +15,7 @@
 */
 
 // App
-var app = angular.module('ark', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router', 'angularUtils.directives.dirPagination', 'ngSanitize', 'slick']).run(function ($templateCache, $http) {
+var app = angular.module('ark', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router', 'angularUtils.directives.dirPagination', 'anim-in-out', 'ngSanitize', 'slick']).run(function ($templateCache, $http) {
     $http.get('views/mainView.html', {
         cache: $templateCache
     });
@@ -37,31 +37,4 @@ var app = angular.module('ark', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router
     $http.get('views/feat.html', {
         cache: $templateCache
     });
-});
-
-app.directive('bindUnsafeHtml', ['$compile', function ($compile) {
-    return function (scope, element, attrs) {
-        scope.$watch(
-            function (scope) {
-                return scope.$eval(attrs.bindUnsafeHtml);
-            },
-            function (value) {
-                element.html(value);
-                $compile(element.contents())(scope);
-            }
-        );
-    };
-}]);
-
-app.directive('lightgallery', function () {
-    return {
-        restrict: 'A',
-        link: function (scope, element, attrs) {
-            if (scope.$last) {
-
-                // ng-repeat is completed
-                element.parent().lightGallery();
-            }
-        }
-    };
 });

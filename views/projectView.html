@@ -1,5 +1,5 @@
-<div id="project-info-wrapper">
-    <div class="fix-wrapper">
+<div id="project-info-wrapper" class="">
+    <div class="fix-wrapper-index">
         <div class="control-box">
             <p><a class="info-btn" href="#">INFO &gt;</a></p>
             <p><a class="prv-slick">&lt;</a></p>
@@ -12,9 +12,9 @@
         </div>
 
         <div class="height-wrapper">
-            <slick class="height-wrapper" currentIndex="0" dots="false" infinite="true" speed="500" slides-to-show="1" touch-move="true" slides-to-scroll="1" autoplay="true" autoplaySpeed="500" arrows="true" settings="slickConfig">
-                <div class="project-image" data-ng-repeat="item in project.images">
-                    <img alt="{{title}}" src="{{item.url}}" />
+            <slick class="height-wrapper" currentIndex="1" dots="false" infinite="true" speed="1000" touch-move="true" arrows="true" settings="slickConfig" draggable="true" fade="true">
+                <div lightgallery class="project-image" data-ng-repeat="item in project.images" data-src="{{item.url}}">
+                    <img src="{{item.url}}" data-ng-image-load-animation="" />
                 </div>
             </slick>
         </div>

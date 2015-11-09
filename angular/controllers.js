@@ -6,12 +6,6 @@
  License: GPL v3
  Author: MD. Hasan Shahriar
  Author email: hsleonis2@gmail.com
-  _____   _____           _____ _______       _      _____          
- |  __ \ / ____|   /\    / ____|__   __|/\   | |    |_   _|   /\    
- | |  | | |       /  \  | (___    | |  /  \  | |      | |    /  \   
- | |  | | |      / /\ \  \___ \   | | / /\ \ | |      | |   / /\ \  
- | |__| | |____ / ____ \ ____) |  | |/ ____ \| |____ _| |_ / ____ \ 
- |_____/ \_____/_/    \_\_____/   |_/_/    \_\______|_____/_/    \_\
 
 */
 
@@ -52,6 +46,7 @@
         $scope.item = {
             desc: ''
         };
+        $scope.ngdate = new Date();
 
         // Get menu from cache
         landing = $localStorage.menu;
@@ -160,9 +155,10 @@
                   $scope.currentIndex = currentSlide+1; // save current index each time
                   $scope.$apply();
                   //console.log($scope.currentIndex);
+                  // $('.firstDiv').slickGoTo(4);
                 },
                 init: function (event, slick) {
-                  slick.slickGoTo($scope.currentIndex); // slide to correct index when init
+                  slick.slickGoTo(0);
                   //console.log($scope.currentIndex);
                 }
             }
@@ -202,7 +198,7 @@
 
         if (nslug[2] === "type" && nslug[3]) {
             $scope.searchProject = nslug[3];
-            $scope.$apply;
+            $scope.$apply();
         }
         $scope.projectList = projects;
 
@@ -223,7 +219,6 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();        
             scrollbar();
         });
     });
@@ -253,7 +248,7 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();        
+                   
             scrollbar();
         });
     });
@@ -282,7 +277,7 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
-            $(".cssloader").hide();        
+                   
             scrollbar();
         });
 
