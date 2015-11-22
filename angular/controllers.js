@@ -12,7 +12,7 @@
 (function (angular) {
 
     // GLOBALS
-    var API = "http://localhost/area/cms/administrator/json/";
+    var API = "http://dcastalia.com/projects/web/area/cms/administrator/json/";
     var company = "ARCHITECT EMRAN & ASSOCIATES.";
     var landing = [];
     var pages = [];
@@ -49,10 +49,10 @@
         $scope.ngdate = new Date();
 
         // Get menu from cache
-        landing = $localStorage.menu;
+        //landing = $localStorage.menu;
 
         // Load landing settings
-        if (!$localStorage.menu) {
+       // if (!$localStorage.menu) {
             $http.post(API + "landing_json.json", {})
                 .success(function (response) {
                     $localStorage.menu = landing = response;
@@ -60,11 +60,11 @@
                     $scope.categories = landing.categories;
                     $scope.home_slider = landing.home_slider;
                 });
-        } else {
+        /*} else {
             $scope.main_menu = landing.main_menu;
             $scope.categories = landing.categories;
             $scope.home_slider = landing.home_slider;
-        }
+        }*/
 
         // Generate random element
         $scope.random = function () {
@@ -75,6 +75,7 @@
         $http.post(API + "allpages.json", {})
             .success(function (response) {
                 $localStorage.pages = pages = response;
+                $scope.pages = pages = $localStorage.pages;
         });
 
         // Reload settings
@@ -86,29 +87,27 @@
         $http.post(API + "project_list.json", {})
             .success(function (response) {
                 $localStorage.projects = projects = response.product_list;
-            });
-        $scope.projects = projects = $localStorage.projects;
-        $scope.randomProjects = shuffleArray($scope.projects);
+                $scope.projects = projects = $localStorage.projects;
+                $scope.randomProjects = shuffleArray($scope.projects);
+        });
+        
         // Load projects
         $http.post(API + "project_detail.json", {})
             .success(function (response) {
                 $localStorage.singles = singles = response;
             });
-
-        // Menu
-        $scope.pages = pages = $localStorage.pages;
     });
     // ========================================================== //
 
     // Home controller
     app.controller('homeController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
-        $scope.projects = projects = $localStorage.projects;
         $scope.$parent.hideMenu = false;
 
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
                 .success(function (response) {
                     $localStorage.projects = projects = response.product_list;
+                    $scope.projects = projects = $localStorage.projects;
                 });
         } else {}
 
@@ -125,54 +124,66 @@
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
         
-        singles = $localStorage.singles;
-        if (!$localStorage.projects) {
+        function singleProjects(){
+            $scope.project = singles[$stateParams.slug];
+
+            $scope.currentIndex = 1;
+            $scope.slickConfig = {
+                method: {},
+                event: {
+                    afterChange: function (event, slick, currentSlide, nextSlide) {
+                      $scope.currentIndex = currentSlide+1; // save current index each time
+                      $scope.$apply();
+                      //console.log($scope.currentIndex);
+                      // $('.firstDiv').slickGoTo(4);
+                    },
+                    init: function (event, slick) {
+                      slick.slickGoTo(0);
+                      //console.log($scope.currentIndex);
+                    }
+                }
+            };
+
+            $scope.title = $scope.project.title;
+            $scope.featDetails = $scope.detailDesc = $scope.project.desc;
+            $scope.ptype = $scope.project.type.toLowerCase();
+            document.title = $scope.project.title.toUpperCase() + " | " + company;
+        }
+        
+        function nav(){
+            var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
+            var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
+            var index = catList.indexOf(foundItem);
+            
+            var prv = (index>0)?(index-1):(catList.length-1);
+            var nxt = (index<catList.length-1)?(index+1):0;
+            $scope.prvProject = catList[prv].project_slug;
+            $scope.nxtProject = catList[nxt].project_slug;
+        }
+        
+        if (typeof $localStorage.singles==='undefined') {
             $http.post(API + "project_detail.json", {})
                 .success(function (response) {
                     $localStorage.singles = singles = response.project_list;
-                });
-        } else {}
-        projects = $localStorage.projects;
-        if (!$localStorage.projects) {
+                    singles = $localStorage.singles;
+                    $scope.single = singles;
+                    singleProjects();
+               });
+        } else {
+            $scope.single = singles = $localStorage.singles;
+            singleProjects();
+        }
+        //projects = $localStorage.projects;
+        if (typeof $localStorage.projects==='undefined') {
             $http.post(API + "project_list.json", {})
                 .success(function (response) {
-                    $localStorage.projects = projects = response.product_list;
+                    $scope.projects = $localStorage.projects = projects = response.product_list;
+                    nav();
                 });
-        } else {}
-        
-        $scope.single = singles;
-
-        $scope.project = singles[$stateParams.slug];
-        var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
-        var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
-        var index = catList.indexOf(foundItem);
-        
-        $scope.currentIndex = 1;
-        $scope.slickConfig = {
-            method: {},
-            event: {
-                afterChange: function (event, slick, currentSlide, nextSlide) {
-                  $scope.currentIndex = currentSlide+1; // save current index each time
-                  $scope.$apply();
-                  //console.log($scope.currentIndex);
-                  // $('.firstDiv').slickGoTo(4);
-                },
-                init: function (event, slick) {
-                  slick.slickGoTo(0);
-                  //console.log($scope.currentIndex);
-                }
-            }
-        };
-
-        var prv = (index>0)?(index-1):(catList.length-1);
-        var nxt = (index<catList.length-1)?(index+1):0;
-        $scope.prvProject = catList[prv].project_slug;
-        $scope.nxtProject = catList[nxt].project_slug;
-        
-        $scope.title = $scope.project.title;
-        $scope.featDetails = $scope.detailDesc = $scope.project.desc;
-        $scope.ptype = $scope.project.type.toLowerCase();
-        document.title = $scope.project.title.toUpperCase() + " | " + company;
+        } else {
+            $scope.projects = projects = $localStorage.projects;
+            nav();
+        }
 
         // READY >>>
         angular.element("#main-wrapper").ready(function () {
@@ -186,28 +197,34 @@
     app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
+        
+        function setTitle(){
+            if (typeof $scope.searchProject==='undefined')
+                $scope.title = document.title = company;
+            else
+                $scope.title = document.title = $scope.searchProject.toUpperCase() + " PROJECTS | " + company;
 
-        projects = $localStorage.projects;
-
+            //$scope.title = $scope.searchProject.toUpperCase() ? $scope.searchProject.toUpperCase() : '';
+        }
+        
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
                 .success(function (response) {
                     $localStorage.projects = projects = response.product_list;
+                    projects = $localStorage.projects;
+                    $scope.projectList = projects;
+                    setTitle();
                 });
-        } else {}
+        } else {
+            projects = $localStorage.projects;
+            $scope.projectList = projects;
+            setTitle();
+        }
 
         if (nslug[2] === "type" && nslug[3]) {
             $scope.searchProject = nslug[3];
             $scope.$apply();
         }
-        $scope.projectList = projects;
-
-        if (!$scope.searchProject)
-            document.title = company;
-        else
-            document.title = $scope.searchProject.toUpperCase() + " PROJECTS | " + company;
-
-        $scope.title = $scope.searchProject.toUpperCase() ? $scope.searchProject.toUpperCase() : '';
 
         $scope.proFilter = '';
         $scope.filter_pro = function (data) {
@@ -219,6 +236,7 @@
         }
 
         angular.element("#main-wrapper").ready(function () {
+            $(".cssloader").hide();        
             scrollbar();
         });
     });
@@ -228,27 +246,42 @@
     app.controller('secondController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         var pageNo = 0;
         var nslug = $location.$$url.split('/');
+        
+        function fullPage(){
+            if ($stateParams.slug)
+                    var secondPage = pages[$stateParams.slug];
 
-        if ($stateParams.slug)
-            var secondPage = pages[$stateParams.slug];
+                if (secondPage) {
+                    $scope.secondTitle = secondPage.page_data.page_title;
+                    document.title = secondPage.page_data.page_title + " | " + company;
+                    if (secondPage.page_images[0].image != 'undefined')
+                        $scope.secondImage = secondPage.page_images[0].image;
+                    else $scope.secondImage = '';
+                    $scope.secondShortDesc = secondPage.page_data.page_desc;
+                    $scope.secondFullDesc = secondPage.page_data.page_desc;
+                    $scope.secondChildPage = secondPage.child_pages.menu;
+                    $scope.secondSlug = secondPage.page_data.page_slug;
 
-        if (secondPage) {
-            $scope.secondTitle = secondPage.page_data.page_title;
-            document.title = secondPage.page_data.page_title + " | " + company;
-            if (secondPage.page_images[0].image != 'undefined')
-                $scope.secondImage = secondPage.page_images[0].image;
-            else $scope.secondImage = '';
-            $scope.secondShortDesc = secondPage.page_data.page_desc;
-            $scope.secondFullDesc = secondPage.page_data.page_desc;
-            $scope.secondChildPage = secondPage.child_pages.menu;
-            $scope.secondSlug = secondPage.page_data.page_slug;
-            
-            if($scope.secondSlug=='contact-us')
-                $scope.$parent.hideMenu = true;
+                    if($scope.secondSlug=='contact-us')
+                        $scope.$parent.hideMenu = true;
+                }
+        }
+        
+        if (!$localStorage.pages) {
+            $http.post(API + "allpages.json", {})
+                .success(function (response) {
+                    $localStorage.pages = pages = response;
+                    $scope.pages = pages = $localStorage.pages;
+                    fullPage();
+            });
+        }
+        else{
+            $scope.pages = pages = $localStorage.pages;
+            fullPage();
         }
 
         angular.element("#main-wrapper").ready(function () {
-                   
+            $(".cssloader").hide();        
             scrollbar();
         });
     });
@@ -275,9 +308,19 @@
             $scope.detailTitle = "Page not found";
             $scope.detailDesc = "We can't find what you are looking for.";
         }
+        
+        if (!$localStorage.pages) {
+            $http.post(API + "project_detail.json", {})
+            .success(function (response) {
+                $localStorage.singles = singles = response;
+            });
+        }
+        else{
+            $scope.pages = pages = $localStorage.pages;
+        }
 
         angular.element("#main-wrapper").ready(function () {
-                   
+            $(".cssloader").hide();        
             scrollbar();
         });
 

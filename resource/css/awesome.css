@@ -4,7 +4,17 @@
  License: GPL v3
  Author: MD. Hasan Shahriar
  Author email: hsleonis2@gmail.com
+<<<<<<< HEAD
 
+=======
+  _____   _____           _____ _______       _      _____          
+ |  __ \ / ____|   /\    / ____|__   __|/\   | |    |_   _|   /\    
+ | |  | | |       /  \  | (___    | |  /  \  | |      | |    /  \   
+ | |  | | |      / /\ \  \___ \   | | / /\ \ | |      | |   / /\ \  
+ | |__| | |____ / ____ \ ____) |  | |/ ____ \| |____ _| |_ / ____ \ 
+ |_____/ \_____/_/    \_\_____/   |_/_/    \_\______|_____/_/    \_\
+ 
+>>>>>>> fe281bdd94d5eda1dca98e7015dedf2fc67124d2
 */
 .anim-in-out.anim-in-setup.anim-fade, .anim-in-out.anim-in-setup .anim-fade {
   opacity: 0; }

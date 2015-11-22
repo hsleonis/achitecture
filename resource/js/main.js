@@ -75,6 +75,21 @@ function scrollbar(){
     }
     $(".height-wrapper").css("height", h+"px");
     $("#main-wrapper").css("width",w+"px");
+    var h = (full - 144) * 0.8;
+    var w = (h * 1.62) + 20;
+    if(fullWidth<800) {
+        w = fullWidth-80;
+        h= (w * 0.62) + 144;
+    }
+    $(".height-wrapper").css("height", h+"px");
+    $("#main-wrapper").css("width",w+"px");
+    $('.right-side-area').perfectScrollbar({
+        maxScrollbarLength: 15,
+        minScrollbarLength: 15
+    });
+    angular.element(".right-side-area").ready(function(){
+        $('.right-side-area').perfectScrollbar('update');
+    });
 }
 
 // Slick previous
@@ -104,5 +119,5 @@ $(document).ready(function () {
 
 // Window load
 $(window).load(function(){
-    $('.loader').css({visibility: 'hidden'});
+    $('.preload').css({visibility: 'hidden'});
 });

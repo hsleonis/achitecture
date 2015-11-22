@@ -11,6 +11,19 @@
 
 var app = angular.module('ark');
 
+app.filter('highlight', function($sce) {
+    return function(text, phrase) {
+      if (phrase && phrase.length>2) {
+          text = text.replace(new RegExp('('+phrase+')', 'gi'),
+        '<span class="highlighted">$1</span>');
+      }
+        setTimeout(function(){
+            $('.ps-container').perfectScrollbar('update');
+        },5);
+      return $sce.trustAsHtml(text);
+  }
+});
+
 app.directive('bindUnsafeHtml', ['$compile', function ($compile) {
     return function (scope, element, attrs) {
         scope.$watch(

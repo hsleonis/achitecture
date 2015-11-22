@@ -8,13 +8,3 @@
  Author email: hsleonis2@gmail.com
  
 */
-
-var app = angular.module('ark');
-
-class MyService {
-  sayHello() {
-    console.log('hello');
-  }
-}
-
-app.service('MyService', MyService);

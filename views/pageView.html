@@ -1,8 +1,12 @@
 <div id="project-list-wrapper" class="page-text page-padding">
-    <div class="fix-wrapper-page anim-fade">
-        <div class="right-side-area width-full height-wrapper" bind-unsafe-html="secondFullDesc" data-ng-scroll="">
+    <div class="fix-wrapper-page anim-in-out anim-fade">
+        <div class="right-side-area width-full height-wrapper" bind-unsafe-html="secondFullDesc" ng-bind-html="secondFullDesc|highlight:searchPage" data-ng-scroll="">
         </div>
         <!--/.right-side-area-->
     </div>
     <!--/.fix-wrapper-->
+</div>
+
+<div class="search">
+    <input ng-model="searchPage" placeholder="Search.." />
 </div>
