@@ -80,6 +80,8 @@ body{
     font-family: 'Conv_LetterGothicStd';
     line-height: 13.2px;
     color: #000;
+    height: 100%;
+    overflow: hidden;
 }
 
 a{
@@ -146,11 +148,21 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     margin: 10px 0;
 }
 
+#content-wrapper *{
+    overflow-y: hidden;
+}
+
 /*=============================
 ============ Menu =============
 ==============================*/
 .menu{
     float: left;
+}
+
+.top-menu{
+    height: 33.5px;
+    float: left;
+    width: 100%;
 }
 
 .menu li{
@@ -167,8 +179,9 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     margin-left: 5px
 }
 .menu a{
-    color: #939598;
-    font-size: 13px;
+    color: #000;
+    font-size: 12px;
+    font-family: "Conv_Letter Gothic Std Bold";
     
     line-height: 14.4px;
     padding:4px 10px 0px 2px;
@@ -176,8 +189,11 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
 }
 
 span.highlighted{
-    color: #ed1c24;
+    background: #ed1c24;
     font-weight: 700;
+    color: #FFF;
+    padding-top: 3px;
+}
 }
 
 .active {
@@ -210,16 +226,15 @@ span.highlighted{
 }
 
 .menu-bottom a{
-    color: #939598;
+    color: #000;
     font-size: 12px;
-    
+    font-family: "Conv_Letter Gothic Std Bold";
 }
 
 .active-bm,
 .menu-bottom li:hover a {
     /*background: #000;*/
     color: #000;
-    
     font-size: 12px;
 }
 
@@ -238,6 +253,7 @@ span.highlighted{
 #footer h1{
     font-size: 18px;
     margin:20px 0 10px 0;
+    font-family: "Conv_Letter Gothic Std Bold";
 }
 
 /*==============================
@@ -331,6 +347,7 @@ span.highlighted{
 .slick-slider{
     overflow: hidden;
 }
+.home-slider img,
 .slick-slide img{
     width: 100%;
     cursor: pointer;
@@ -364,6 +381,7 @@ span.highlighted{
     width: 90px;
     text-align: right;
     font-size: 13px;
+    font-family: "Conv_Letter Gothic Std Bold";
     
     color: #000;
     left: -100px;
@@ -409,6 +427,7 @@ span.highlighted{
     float: left;
     font-size: 13px;
     line-height: 13.6px;
+    font-family: "Conv_Letter Gothic Std Bold";
     
     padding-top: 5px;
     margin-right: 10px;
