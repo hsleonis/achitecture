@@ -146,6 +146,8 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     border-image-outset: 5px;
     -moz-box-sizing: border-box;
     margin: 10px 0;
+    top: -10px;
+    position: relative;
 }
 
 #content-wrapper *{
@@ -280,7 +282,7 @@ span.highlighted{
 .project-view-box{
     width: 100%;
     float: left;
-    top: 0px;
+    top: -10px;
     position: absolute;
 }
 
@@ -346,6 +348,7 @@ span.highlighted{
 }
 .slick-slider{
     overflow: hidden;
+    margin-bottom: 0;
 }
 .home-slider img,
 .slick-slide img{
@@ -548,10 +551,10 @@ span.highlighted{
     width: 100%;
     box-sizing: border-box;
     padding-right: 15px;
-    font-size: 11px;
-    line-height: 13.2px;
+    font-size: 12px;
+    line-height: 16.2px;
     text-align: justify;
-    padding: 0 40px 0 20px;
+    padding: 0 35px 0 25px;
 }
 .page-text {
     padding-top: 5px;
