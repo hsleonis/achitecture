@@ -143,7 +143,7 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     -o-border-image: url(../img/plus.png);
     border-image: url(../img/plus.png);
     box-sizing: border-box;
-    border-image-outset: 5px;
+    border-image-outset: 5px 5px 25px 5px;
     -moz-box-sizing: border-box;
     margin: 10px 0;
     top: -10px;
@@ -191,11 +191,10 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
 }
 
 span.highlighted{
-    background: #ed1c24;
+    background: #000;
     font-weight: 700;
     color: #FFF;
-    padding-top: 3px;
-}
+    padding-top: 1px;
 }
 
 .active {
@@ -373,11 +372,26 @@ span.highlighted{
     -webkit-border-image: url(../img/plus.png);
     -o-border-image: url(../img/plus.png);
     border-image: url(../img/plus.png);
-    border-image-outset: 5px;
+    border-image-outset: 5px 5px 24px 5px;
     margin-top: 9px;
     margin-bottom: 10px;
+    top: -9px;
     box-sizing: border-box;
 }
+
+#project-info-wrapper .slick-slider {
+    overflow: visible;
+}
+
+.slick-slide{
+    background: url(../img/bar.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/*************/
+
+/*************/
 
 .control-box{
     position: absolute;
@@ -448,12 +462,26 @@ span.highlighted{
 }
 
 .preload span {
-    top: 40%;
-    /*left: 50%;*/
+    top: 45%;
+    margin-top: 10px;
     position: relative;
-/*    -webkit-transform: translate(-50%);
-    -ms-transform: translate(-50%);
-    transform: translate(-50%);*/
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    -webkit-justify-content: center;
+    -webkit-align-content: center;
+}
+
+.leoloader {
+    width: 150px;
+    height: 2px;
+    overflow: hidden;
+    background: #DDD;
+}
+
+#progress {
+    height: inherit;
+    background: #000;
 }
 
 .search{
@@ -551,10 +579,11 @@ span.highlighted{
     width: 100%;
     box-sizing: border-box;
     padding-right: 15px;
-    font-size: 12px;
-    line-height: 16.2px;
+    font-size: 11px;
+    line-height: 14.2px;
     text-align: justify;
     padding: 0 35px 0 25px;
+    cursor: default;
 }
 .page-text {
     padding-top: 5px;

@@ -55,6 +55,12 @@ $(document).on("mouseover",".project-list li",function(){
     $(".project-view-box img").attr('src',img);
 });
 
+$(document).on("click",".top-menu li a", function() {
+    setTimeout(function(){
+        $(".menu-bottom > li:nth-child(1) > a:nth-child(1)").addClass("active-bm");
+    },300);
+});
+
 // Images loader
 $('img').error(function(){
     $(this).attr('src', "resource/css/ajax-loader.gif");
