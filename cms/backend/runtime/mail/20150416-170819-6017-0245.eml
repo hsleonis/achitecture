@@ -1,0 +1,23 @@
+Message-ID: <23d5a5a0d5aeb58ee16da8c84c188993@localhost>
+Date: Thu, 16 Apr 2015 17:08:19 +0200
+Subject: Message subject
+From: from@domain.com
+To: shimul@dcastalia.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1429196899_1d20e8ab4c4584c5e9ba6970cde55aa1_=_"
+
+
+--_=_swift_v4_1429196899_1d20e8ab4c4584c5e9ba6970cde55aa1_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Plain text content
+
+--_=_swift_v4_1429196899_1d20e8ab4c4584c5e9ba6970cde55aa1_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<b>HTML content</b>
+
+--_=_swift_v4_1429196899_1d20e8ab4c4584c5e9ba6970cde55aa1_=_--

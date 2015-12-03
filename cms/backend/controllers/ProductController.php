@@ -225,7 +225,7 @@ class ProductController extends Controller
             if($rel_model->save()){
                 $response = [];
 
-                Image::thumbnail('@webroot/product_uploads/'.$image_name, 220, 150)
+                Image::thumbnail('@webroot/product_uploads/'.$image_name, 750, 470)
                     ->save(Yii::getAlias('@webroot').'/product_uploads/thumb/'.$image_name, ['quality' => 100]);
 
 

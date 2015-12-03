@@ -288,7 +288,62 @@ class Product extends \yii\db\ActiveRecord
         return $options;
     }
 
+    public static function get_thumb_product_with_detail(){
 
+        $options = [];
+        $i = 0;
+        $product_list_r = Product::find()->joinWith('cat_rel')->orderBy('product_category_rel.sort_order desc')->all();
+
+        foreach($product_list_r as $key => $value){
+
+            $options[self::product_data($value->id)->slug]['id'] = self::product_data($value->id)->id;
+            $options[self::product_data($value->id)->slug]['title'] = self::product_data($value->id)->title;
+            $options[self::product_data($value->id)->slug]['slug'] = self::product_data($value->id)->slug;
+            $options[self::product_data($value->id)->slug]['desc'] = self::product_data($value->id)->desc;
+            //$options[self::product_data($value->id)->slug]['status'] = self::product_data($value->id)->status;
+            $options[self::product_data($value->id)->slug]['project_order'] = self::product_data($value->id)->sort_order;
+            $options[self::product_data($value->id)->slug]['is_featured'] = self::product_data($value->id)->is_featured;
+
+            if(!empty($value->specification)){
+                $k=0;
+                foreach ($value->specification as $spec) {
+                    
+                    $options[self::product_data($value->id)->slug]['specification'][$k] = $spec;
+                    $k++;
+                }
+            }
+
+            if(!empty($value->image_all)){
+                $j=0;
+                foreach ($value->image_all as $banner) {
+                    
+                    $options[self::product_data($value->id)->slug]['images'][$j]['url'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/thumb/'.$banner->image;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['title'] = $banner->title;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['desc'] = $banner->desc;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['sort_order'] = $banner->sort_order;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['is_banner'] = $banner->is_banner;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['is_gallery'] = $banner->is_gallery;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['is_hover'] = $banner->is_hover;
+                    $j++;
+                }
+            }
+
+            if(!empty($value->post)){
+                $j=0;
+                foreach ($value->post as $post) {
+                    
+                    $options[self::product_data($value->id)->slug]['posts'][$j] = $post;
+                    $j++;
+                }
+            }
+
+            $options[self::product_data($value->id)->slug]['type'] = $value->project_category_rel->category_name['cat_title'];
+            $options[self::product_data($value->id)->slug]['category'] = $value->project_category_rel->project_category_category_self_rel['category_name']['cat_title'];
+            $i++;
+        }
+
+        return $options;
+    }
 
 
 }

@@ -212,7 +212,7 @@ class JsonController extends Controller
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $response = Product::get_all_product_with_detail();
-
+        $resp2 = Product::get_thumb_product_with_detail();
         /*$response = [];
 
         $response['product_list'] = $product_all_list;*/
@@ -229,6 +229,10 @@ class JsonController extends Controller
         $fp = fopen('json/project_detail.json', 'w');
         fwrite($fp, \yii\helpers\Json::encode($response));
         fclose($fp);
+        
+        $fp2 = fopen('json/thumb_project_detail.json', 'w');
+        fwrite($fp2, \yii\helpers\Json::encode($resp2));
+        fclose($fp2);
         
         return $this->redirect(['/']);
 
