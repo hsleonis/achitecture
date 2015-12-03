@@ -55,6 +55,7 @@ app.directive('ngTopMenu', function() {
     return {
         restrict: 'AM',
         link: function(scope, element, attrs){
+            scope.$parent.activeProjects = true;
         },
         templateUrl: 'views/topmenu.html',
     }

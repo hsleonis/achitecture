@@ -13,6 +13,10 @@
 
     // GLOBALS
     var API = "http://dcastalia.com/projects/web/area/cms/administrator/json/";
+    var detAPI = API + "project_detail.json";
+    if ($(window).width() <= 1400) {
+            detAPI = API + "thumb_project_detail.json"
+    }
     var company = "ARCHITECT EMRAN & ASSOCIATES.";
     var landing = [];
     var pages = [];
@@ -47,6 +51,7 @@
             desc: ''
         };
         $scope.ngdate = new Date();
+        $scope.activeProjects = false;
 
         // Get menu from cache
         //landing = $localStorage.menu;
@@ -92,7 +97,7 @@
         });
         
         // Load projects
-        $http.post(API + "project_detail.json", {})
+        $http.post(detAPI, {})
             .success(function (response) {
                 $localStorage.singles = singles = response;
             });
@@ -101,7 +106,8 @@
 
     // Home controller
     app.controller('homeController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
-        $scope.$parent.hideMenu = false;
+        $scope.$parent.hideMenu = true;
+        $scope.$parent.activeProjects = true;
 
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
@@ -123,6 +129,7 @@
     app.controller('projectDetailsController', function ($scope, $http, $filter, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
+        $scope.$parent.activeProjects = true;
         
         function singleProjects(){
             $scope.project = singles[$stateParams.slug];
@@ -162,7 +169,7 @@
         }
         
         if (typeof $localStorage.singles==='undefined') {
-            $http.post(API + "project_detail.json", {})
+            $http.post(detAPI, {})
                 .success(function (response) {
                     $localStorage.singles = singles = response.project_list;
                     singles = $localStorage.singles;
@@ -197,6 +204,7 @@
     app.controller('listController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
+        $scope.$parent.activeProjects = 1;
         
         function setTitle(){
             if (typeof $scope.searchProject==='undefined')
@@ -223,7 +231,7 @@
 
         if (nslug[2] === "type" && nslug[3]) {
             $scope.searchProject = nslug[3];
-            $scope.$apply();
+            //$scope.$apply();
         }
 
         $scope.proFilter = '';
@@ -246,6 +254,8 @@
     app.controller('secondController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         var pageNo = 0;
         var nslug = $location.$$url.split('/');
+        if($stateParams.slug=='writing')
+            $scope.$parent.activeProjects = true;
         
         function fullPage(){
             if ($stateParams.slug)
@@ -310,7 +320,7 @@
         }
         
         if (!$localStorage.pages) {
-            $http.post(API + "project_detail.json", {})
+            $http.post(detAPI, {})
             .success(function (response) {
                 $localStorage.singles = singles = response;
             });
