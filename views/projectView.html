@@ -13,7 +13,7 @@
 
         <div class="height-wrapper">
             <slick class="height-wrapper" currentIndex="1" dots="false" infinite="true" speed="1000" touch-move="true" arrows="true" settings="slickConfig" draggable="true" fade="true">
-                <div lightgallery class="project-image" data-ng-repeat="item in project.images" data-src="{{item.url}}">
+                <div lightgallery class="project-image" data-ng-repeat="item in data=(project.images)" data-src="{{item.url}}">
                     <img src="{{item.url}}" data-ng-image-load-animation="" />
                 </div>
             </slick>

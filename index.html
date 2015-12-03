@@ -20,17 +20,27 @@
     <link rel="stylesheet" href="resource/css/awesome.css">
     <link rel="stylesheet" href="resource/css/perfect-scrollbar.css" />
     <link rel="stylesheet" href="resource/css/style.css" />
+    <script>
+        function setProgress(val){
+            document.getElementById("progress").style.width = val+'%';
+            document.getElementById("progtext").innerHTML= val + '%';
+        }
+    </script>
 </head>
 
 <body>
-    <div class="preload">
+    <div style="" class="preload">
         <span>
-            <div class="loader"></div>
-            <!--<img src="resource/img/loader.gif" />-->
-            <!--<h5>LOADING..</h5>-->
+          <div class="leoloader">
+              <div style="width: 0%" id="progress"></div>
+          </div>
         </span>
+        <span id="progtext"></span>
     </div>
     <!-- Preloader -->
+    <script>
+        setProgress(5);
+    </script>
     
     <div id="main-wrapper" data-ng-app="ark" data-ng-controller="mainController">
 
@@ -48,33 +58,76 @@
 
     </div>
     <!--/#main-wrapper-->
+    <script>
+        setProgress(25);
+    </script>
 
     <!-- Scripts -->
     <script src="resource/js/jquery-2.1.1.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+        setProgress(35);
+    </script>
     <script src="resource/js/wow.min.js"></script>
     <script src="resource/js/slick.min.js"></script>
+    <script>
+        setProgress(40);
+    </script>
     <script src="resource/js/perfect-scrollbar.jquery.js"></script>
-
+    <script src="resource/js/pxloader-all.min.js"></script>
+    <script>
+        setProgress(45);
+    </script>
+    
     <script src="angular/angular.min.js"></script>
     <script src="angular/angular-route.min.js"></script>
+    <script>
+        setProgress(55);
+    </script>
+    
     <script src="angular/angular-animate.min.js"></script>
     <script src="angular/ngStorage.min.js"></script>
+    <script>
+        setProgress(65);
+    </script>
+    
     <script src="angular/angular-ui-router.min.js"></script>
     <script src="angular/angular-sanitize.min.js"></script>
     <script src="angular/dirPagination.js"></script>
+    <script>
+        setProgress(75);
+    </script>
+    
     <script src="angular/anim-in-out.js"></script>
     <script src="angular/imagesloaded.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script>
+        setProgress(80);
+    </script>
+    
     <script src="resource/dist/js/lightgallery-all.min.js"></script>
     <script src="angular/app.js"></script>
     <script src="angular/services.js"></script>
+    <script>
+        setProgress(85);
+    </script>
+    
     <script src="angular/controllers.js"></script>
     <script src="angular/directives.js"></script>
+    <script>
+        setProgress(90);
+    </script>
+    
     <script src="angular/router.js"></script>
     <script src="angular/slick.min.js"></script>
-
+    <script>
+        setProgress(95);
+    </script>
+    
     <script src="resource/js/main.js"></script>
+    <script>
+        setProgress(100);
+    </script>
 </body>
 
 </html>

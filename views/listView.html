@@ -10,31 +10,7 @@
 
         <div class="right-side-area list-padding height-wrapper" data-ng-scroll="">
             <ul class="project-list">
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
-                    <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
-                </li>
-                <li data-ng-repeat="item in data=(projects|filter:searchProject)" data-image="{{item.project_image}}">
+                <li data-ng-repeat="item in data=(projects|filter:searchProject|filter:searchMod)" data-image="{{item.project_image}}">
                     <a ui-sref="projectState({slug: item.project_slug})"><strong>{{item.project_title}}</strong></a> - [<span>{{item.project_location}}</span>]
                 </li>
             </ul>
@@ -44,4 +20,8 @@
     </div>
     <!--/.fix-wrapper-->
 
+</div>
+
+<div class="search">
+    <input ng-model="searchMod" placeholder="Search.." />
 </div>
