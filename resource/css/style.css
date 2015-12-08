@@ -139,9 +139,9 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     float: left;
     background: #FFF;
     border: solid transparent 10px;
-    -webkit-border-image: url(../img/plus.png);
+/*    -webkit-border-image: url(../img/plus.png);
     -o-border-image: url(../img/plus.png);
-    border-image: url(../img/plus.png);
+    border-image: url(../img/plus.png);*/
     box-sizing: border-box;
     border-image-outset: 5px 5px 25px 5px;
     -moz-box-sizing: border-box;
@@ -369,9 +369,9 @@ span.highlighted{
     position: relative;
     float: left;
     border: solid transparent 10px;
-    -webkit-border-image: url(../img/plus.png);
+    /*-webkit-border-image: url(../img/plus.png);
     -o-border-image: url(../img/plus.png);
-    border-image: url(../img/plus.png);
+    border-image: url(../img/plus.png);*/
     border-image-outset: 5px 5px 24px 5px;
     margin-top: 9px;
     margin-bottom: 10px;
@@ -432,14 +432,15 @@ span.highlighted{
     background: #000;
     position: relative;
     left: -100%;
+    padding-bottom: 4px;
 }
 
-.info-menu{
+.info-menu {
     list-style: none;
     padding-left: 5px;
 }
 
-.info-menu li{
+.info-menu li {
     color: #fff;
     float: left;
     font-size: 13px;
@@ -448,6 +449,14 @@ span.highlighted{
     
     padding-top: 5px;
     margin-right: 10px;
+}
+
+.info-menu li.more-btn {
+    position: absolute;
+    right: -10px;
+    bottom: 0px;
+    color: #F00;
+    padding: 2px 5px;
 }
 
 /*=======================
@@ -484,16 +493,49 @@ span.highlighted{
     background: #000;
 }
 
+.tl {
+    top: -15px;
+    left: -15px;
+}
+.tr {
+    top: -15px;
+    right: -17px;
+}
+.bl {
+    bottom: -37px;
+    left: -15px;
+}
+.br {
+    bottom: -37px;
+    right: -17px;
+}
+.plus {
+    background: transparent url("../img/plus.png") no-repeat;
+    background-size: 10px;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+
 .search{
     display: inline;
     float: right
 }
 
 .search input{
-    padding: 2px 5px;
+    padding: 2px 5px 0 0;
     margin-top: 10px;
     margin-left: 20px;
-    border: 1px solid rgb(147, 149, 152);
+    border: 0;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.search input:focus{
+    border-bottom: 1px solid #000;
 }
 
 .loader,
@@ -582,6 +624,7 @@ span.highlighted{
     font-size: 11px;
     line-height: 14.2px;
     text-align: justify;
+    text-transform: uppercase;
     padding: 0 35px 0 25px;
     cursor: default;
 }

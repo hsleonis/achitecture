@@ -8,6 +8,8 @@
 
 // document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
 
+// $('.right-side-area').scrollTop($('#dc').offset().top);
+
 // Make vertically responsive
 function verticalResponse() {
   var a = $(window).height(), b = a / 2, c = a / 3, d = a / 4, e = a / 5, f = a / 6, g = a / 7, h = a / 8, k = a / 9, l = a / 10;

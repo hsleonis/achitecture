@@ -107,7 +107,7 @@
     // Home controller
     app.controller('homeController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         $scope.$parent.hideMenu = true;
-        $scope.$parent.activeProjects = true;
+        $scope.$parent.activeProjects = 1;
 
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
@@ -129,7 +129,7 @@
     app.controller('projectDetailsController', function ($scope, $http, $filter, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
-        $scope.$parent.activeProjects = true;
+        $scope.$parent.activeProjects = 1;
         
         function singleProjects(){
             $scope.project = singles[$stateParams.slug];
@@ -255,7 +255,7 @@
         var pageNo = 0;
         var nslug = $location.$$url.split('/');
         if($stateParams.slug=='writing')
-            $scope.$parent.activeProjects = true;
+            $scope.$parent.activeProjects = 1;
         
         function fullPage(){
             if ($stateParams.slug)

@@ -44,7 +44,9 @@ app.directive('lightgallery', function () {
         link: function (scope, element, attrs) {
             if (scope.$last) {
                 element.parent().lightGallery({
-                    download: false
+                    download: false,
+                    nextHtml: 'NEXT >',
+                    prevHtml: '< PREVIOUS'
                 });
             }
         }
