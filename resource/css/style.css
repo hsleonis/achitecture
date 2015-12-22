@@ -190,6 +190,10 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     cursor: pointer;
 }
 
+td{
+    padding-right: 5px;
+}
+
 span.highlighted{
     background: #000;
     font-weight: 700;
@@ -535,7 +539,7 @@ span.highlighted{
 }
 
 .search input:focus{
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #CECDCD;
 }
 
 .loader,
