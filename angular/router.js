@@ -38,6 +38,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         })
+        .state('textViewState', {
+            url: "/page/writing",
+            views: {
+                "mainView": {
+                    templateUrl: "views/textView.html",
+                    controller: "textController"
+                }
+            }
+        })
         .state('secondViewState', {
             url: "/page/:slug",
             views: {

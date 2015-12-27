@@ -6,7 +6,7 @@
  Author email: hsleonis2@gmail.com
 */
 
-// document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
+document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
 
 // $('.right-side-area').scrollTop($('#dc').offset().top);
 

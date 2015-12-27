@@ -131,7 +131,6 @@
         $scope.$parent.hideMenu = false;
         
         $scope.$parent.activeProjects = 1;
-        console.log($scope.$parent.activeProjects);
         
         function singleProjects(){
             $scope.project = singles[$stateParams.slug];
@@ -355,5 +354,57 @@
 
     });
     // ======================================================== //
+    
+    // Project Text Control
+    app.controller('textController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
+        $scope.$parent.hideMenu = false;
+        $scope.$parent.activeProjects = 1;
+        
+        function setTitle(){
+                $scope.title = document.title = "WRITING | " + company;
+        }
+        
+        function textProjects(){
+            if(window.location.hash) {
+                var id = window.location.hash;
+                setTimeout(function(){
+                    $('.cur-project').removeClass('cur-project');
+                    $(id).addClass('cur-project');
+                },100);
+            }
+        }
+        
+        if (typeof $localStorage.singles==='undefined') {
+            $http.post(detAPI, {})
+                .success(function (response) {
+                    $localStorage.singles = singles = response.project_list;
+                    singles = $localStorage.singles;
+                    $scope.single = singles;
+                    textProjects();
+               });
+        } else {
+            $scope.single = singles = $localStorage.singles;
+            textProjects();
+        }
+        
+        $('.search input').keyup(function(e) {
+             if (e.keyCode == 27) {
+                $scope.$apply(function() {
+                    $scope.searchPage = '';
+                });
+            }
+        });
+
+        $scope.proFilter = '';
+        $scope.filter_pro = function (data) {
+            $scope.proFilter = data;
+        }
+
+        angular.element("#main-wrapper").ready(function () {
+            $(".cssloader").hide();        
+            scrollbar();
+        });
+    });
+    // ========================================================== //
 
 })(window.angular);

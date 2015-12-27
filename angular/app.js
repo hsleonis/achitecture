@@ -37,4 +37,7 @@ var app = angular.module('ark', ['ngAnimate', 'ngRoute', 'ngStorage', 'ui.router
     $http.get('views/feat.html', {
         cache: $templateCache
     });
+    $http.get('views/textView.html', {
+        cache: $templateCache
+    });
 });
