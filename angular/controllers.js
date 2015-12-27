@@ -107,7 +107,7 @@
     // Home controller
     app.controller('homeController', function ($scope, $http, $routeParams, $location, $localStorage, $stateParams) {
         $scope.$parent.hideMenu = true;
-        $scope.$parent.activeProjects = 1;
+        $scope.$parent.activeProjects = 0;
 
         if (!$localStorage.projects) {
             $http.post(API + "project_list.json", {})
@@ -129,7 +129,9 @@
     app.controller('projectDetailsController', function ($scope, $http, $filter, $routeParams, $location, $localStorage, $stateParams) {
         var nslug = $location.$$url.split('/');
         $scope.$parent.hideMenu = false;
+        
         $scope.$parent.activeProjects = 1;
+        console.log($scope.$parent.activeProjects);
         
         function singleProjects(){
             $scope.project = singles[$stateParams.slug];
@@ -233,6 +235,14 @@
             $scope.searchProject = nslug[3];
             //$scope.$apply();
         }
+        
+        $('.search input').keyup(function(e) {
+             if (e.keyCode == 27) {
+                $scope.$apply(function() {
+                    $scope.searchMod = '';
+                });
+            }
+        });
 
         $scope.proFilter = '';
         $scope.filter_pro = function (data) {
@@ -256,6 +266,7 @@
         var nslug = $location.$$url.split('/');
         if($stateParams.slug=='writing')
             $scope.$parent.activeProjects = 1;
+        else $scope.$parent.activeProjects = 0;
         
         function fullPage(){
             if ($stateParams.slug)
@@ -276,6 +287,14 @@
                         $scope.$parent.hideMenu = true;
                 }
         }
+        
+        $('.search input').keyup(function(e) {
+             if (e.keyCode == 27) {
+                $scope.$apply(function() {
+                    $scope.searchPage = '';
+                });
+            }
+        });
         
         if (!$localStorage.pages) {
             $http.post(API + "allpages.json", {})

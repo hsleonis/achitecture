@@ -190,6 +190,78 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
     cursor: pointer;
 }
 
+/*========================================*/
+
+.lg-prev,
+.lg-next,
+.lg-outer .lg-toogle-thumb::after,
+#lg-zoom-out::after,
+#lg-zoom-in::after,
+.lg-fullscreen::after,
+.lg-autoplay-button::after,
+.lg-toolbar .lg-close::after {
+    font-size: 14px !important;
+    font-family: "Conv_Letter Gothic Std Bold";
+}
+
+.lg-prev:after,
+.lg-next:before {
+    content: '' !important;
+}
+
+.lg-outer .lg-toogle-thumb {
+    font-size: 14px;
+    height: 40px;
+    line-height: 20px;
+    width: 100px;
+}
+
+.lg-toolbar .lg-icon {
+    height: 35px;
+    line-height: 5px;
+    width: 110px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lg-toolbar {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.lg-outer .lg-toogle-thumb::after {
+    content: "THUMBNAILS";
+}
+
+#lg-zoom-out::after {
+    content: "ZOOM [-]";
+}
+
+#lg-zoom-in::after {
+    content: "ZOOM [+]";
+}
+
+.lg-fullscreen::after {
+    content: "FULLSCREEN";
+}
+
+.lg-autoplay-button::after {
+    content: "SLIDE SHOW";
+}
+
+.lg-toolbar .lg-close::after {
+    content: "CLOSE WINDOW";
+}
+
+.lg-toolbar .lg-close {
+    border: 0 !important;
+}
+
+.lg-fullscreen-on .lg-fullscreen::after {
+    content: "NORMAL";
+}
+
+/*===================================================*/
+
+
 td{
     padding-right: 5px;
 }
@@ -431,9 +503,10 @@ span.highlighted{
 }
 
 .info-menu-wrapper{
-    width: 100%;
+    width: calc(100% - 2px);
+    border: 1px solid rgba(0,0,0,0.7);
     float: left;
-    background: #000;
+    background: #FFF;
     position: relative;
     left: -100%;
     padding-bottom: 4px;
@@ -445,7 +518,6 @@ span.highlighted{
 }
 
 .info-menu li {
-    color: #fff;
     float: left;
     font-size: 13px;
     line-height: 13.6px;
@@ -455,12 +527,24 @@ span.highlighted{
     margin-right: 10px;
 }
 
-.info-menu li.more-btn {
+/*.info-menu li.more-btn {
     position: absolute;
     right: -10px;
     bottom: 0px;
     color: #F00;
     padding: 2px 5px;
+}*/
+
+.more-btn {
+    float: right;
+    padding: 5px;
+    background: rgb(243, 28, 33) none repeat scroll 0% 0%;
+    color: rgb(255, 255, 255);
+    right: 0px;
+    position: relative;
+    top: -21px;
+    z-index: -1;
+    display: none;
 }
 
 /*=======================

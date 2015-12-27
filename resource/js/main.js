@@ -27,16 +27,25 @@ function verticalResponse() {
 
 // Slide to Left
 function slideLeft(item) {
-    $(item).animate({
-        left: -100 + '%'
-    }, 500);
+    $('.more-btn').animate({
+            'top' : -21+'px'
+    },200, function(){
+            $('.more-btn').css({'display':'none'});
+            $(item).animate({
+                left: -100 + '%'
+            }, 500);
+        });
 }
 
 // Slide to Bottom
 function slideRight(item) {
     $(item).animate({
         left: 0
-    }, 500);
+    }, 500, function(){
+        $('.more-btn').css({'display':'block'}).animate({
+            'top' : 0
+        },200);
+    });
 }
 
 // Toggle info panel
