@@ -34,7 +34,7 @@
         </div>
         <!--/.info-menu-wrapper-->
         <span class="more-btn">
-            <a ng-href="page/writing#{{project.slug}}">MORE</a>
+            <a ng-if="project.desc.length>3" ng-href="page/writing#{{project.slug}}">MORE</a>
         </span>
     </div>
     <!--/#info-wrapper-->

@@ -261,7 +261,7 @@ img,legend{border:0}legend,td,th{padding:0}html{font-family:'Conv_LetterGothicSt
 }
 
 .lg-fullscreen-on .lg-fullscreen::after {
-    content: "NORMAL";
+    content: "NORMAL VIEW";
 }
 
 /*===================================================*/
@@ -508,14 +508,14 @@ span.highlighted{
     float: left;
     overflow: hidden;
     z-index: 999;
-    top: -10px;
+    top: -9px;
     position: absolute;
     left: -10px;
 }
 
-.info-menu-wrapper{
+.info-menu-wrapper {
     width: calc(100% - 2px);
-    border: 1px solid rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,0,0,1);
     float: left;
     background: #FFF;
     position: relative;
@@ -529,7 +529,7 @@ span.highlighted{
 
 .info-menu li {
     float: left;
-    font-size: 13px;
+    font-size: 11px;
     line-height: 15px;
     font-family: "Conv_Letter Gothic Std Bold";
     
@@ -547,7 +547,8 @@ span.highlighted{
 
 .more-btn {
     float: right;
-    padding: 5px;
+    padding: 2px 3px 0 3px;
+    line-height: 11px;
     background: rgb(243, 28, 33) none repeat scroll 0% 0%;
     color: rgb(255, 255, 255);
     right: 0px;
@@ -616,11 +617,13 @@ span.highlighted{
     z-index: 1;
 }
 
-
-
 .search{
     display: inline;
     float: right
+}
+
+::-moz-placeholder { 
+    text-decoration: none;
 }
 
 .search input{
@@ -633,7 +636,8 @@ span.highlighted{
 }
 
 .search input:focus{
-    border-bottom: 1px solid #CECDCD;
+    /*border-bottom: 1px solid #CECDCD;*/
+    text-decoration: underline;
 }
 
 .loader,
@@ -767,7 +771,7 @@ span.highlighted{
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
     #info-wrapper {
         width: calc(100% + -55px);
         float: right;

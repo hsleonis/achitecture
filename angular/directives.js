@@ -46,7 +46,10 @@ app.directive('lightgallery', function () {
                 element.parent().lightGallery({
                     download: false,
                     nextHtml: 'NEXT >',
-                    prevHtml: '< PREVIOUS'
+                    prevHtml: '< PREVIOUS',
+                    thumbnail:true,
+                    animateThumb: false,
+                    showThumbByDefault: false
                 });
             }
         }

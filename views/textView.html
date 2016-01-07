@@ -1,7 +1,7 @@
 <div id="project-list-wrapper" class="page-text page-padding">
     <div class="fix-wrapper-page anim-in-out anim-fade">
         <div class="right-side-area width-full height-wrapper" data-ng-scroll="">
-            <p id="{{key}}" data-ng-repeat="(key, val) in single">
+            <p id="{{key}}" data-ng-repeat="(key, val) in single" ng-if="val.desc.length>3">
                 <span ng-bind-html="val.desc|highlight:searchPage"></span>
             </p>
         </div>

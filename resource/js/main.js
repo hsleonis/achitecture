@@ -82,12 +82,12 @@ function scrollbar(){
     var full = $(window).height();
     var fullWidth = $(window).width();
     var h = (full - 144) * 0.75;
-    var w = (h * 1.62) + 20;
+    var w = (h * 1.635) + 20;
     if(fullWidth<=w+80) {
         var ex = (w-fullWidth+80);
         console.log(h+' '+w);
         w -= ex;
-        h -= ex * 0.62;
+        h -= ex * 0.635;
         console.log(h+' '+w);
     }
     /*$(".height-wrapper").css("height", h+"px");
