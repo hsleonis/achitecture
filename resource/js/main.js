@@ -42,6 +42,7 @@ function slideRight(item) {
     $(item).animate({
         left: 0
     }, 500, function(){
+        if(!$('.more-btn a').length) {$('.more-btn').css({'opacity':'0'})}
         $('.more-btn').css({'display':'block'}).animate({
             'top' : 0
         },200);

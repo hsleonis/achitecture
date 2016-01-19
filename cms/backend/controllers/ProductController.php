@@ -227,7 +227,9 @@ class ProductController extends Controller
 
                 Image::thumbnail('@webroot/product_uploads/'.$image_name, 670, 415)
                     ->save(Yii::getAlias('@webroot').'/product_uploads/thumb/'.$image_name, ['quality' => 100]);
-
+                /*
+                Image::thumbnail('@webroot/product_uploads/'.$image_name, 1130, 700)
+                    ->save(Yii::getAlias('@webroot').'/product_uploads/'.$image_name, ['quality' => 100]);*/
 
                 $view = $this->renderAjax('_image_upload', [
                                 'url' => Url::base().'/product_uploads/' . $image_name,
@@ -236,9 +238,8 @@ class ProductController extends Controller
                                 'model'=>$rel_model
                             ]);
 
-
                 $response['view'] = $view;
-
+                
                 return json_encode($response);
             }else{
                 $response['error'] = $rel_model->getErrors();

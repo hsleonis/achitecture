@@ -162,6 +162,9 @@
             var catList = $filter('filter')(projects, { 'project_type' : $scope.project.type }, true);
             var foundItem = $filter('filter')(catList, { 'project_slug' : $scope.project.slug }, true)[0];
             var index = catList.indexOf(foundItem);
+            setTimeout(function(){
+                $('#'+$scope.project.type+'-btn').addClass('active-bm');
+            },100);
             
             var prv = (index>0)?(index-1):(catList.length-1);
             var nxt = (index<catList.length-1)?(index+1):0;
@@ -238,6 +241,7 @@
         $('.search input').keyup(function(e) {
              if (e.keyCode == 27) {
                 $scope.$apply(function() {
+                    $('.search input').val('').blur();
                     $scope.searchMod = '';
                 });
             }
@@ -290,6 +294,7 @@
         $('.search input').keyup(function(e) {
              if (e.keyCode == 27) {
                 $scope.$apply(function() {
+                    $('.search input').val('').blur();
                     $scope.searchPage = '';
                 });
             }
@@ -388,8 +393,9 @@
         }
         
         $('.search input').keyup(function(e) {
-             if (e.keyCode == 27) {
+            if(e.keyCode==27) {
                 $scope.$apply(function() {
+                    $('.search input').val('').blur();
                     $scope.searchPage = '';
                 });
             }
