@@ -476,11 +476,11 @@ span.highlighted{
 
 .control-box{
     position: absolute;
-    width: 90px;
+    width: 87px;
     text-align: right;
     font-size: 13px;
     font-family: "Conv_Letter Gothic Std Bold";
-    
+    top: -7px;
     color: #000;
     left: -100px;
     z-index: 100;
@@ -537,13 +537,25 @@ span.highlighted{
     margin-right: 10px;
 }
 
-/*.info-menu li.more-btn {
+.opening-info:after,
+.closing-info:after {
+    content: '';
+    height: 22px;
+    width: 22px;
+    background-size: cover;
+    background-position: center;
     position: absolute;
-    right: -10px;
-    bottom: 0px;
-    color: #F00;
-    padding: 2px 5px;
-}*/
+    top: -1px;
+    right: -22px;
+}
+
+.opening-info:after {
+    background-image: url('../img/arrow-open.png');
+}
+
+.closing-info:after {
+    background-image: url('../img/arrow-close.png');
+}
 
 .more-btn {
     float: right;
