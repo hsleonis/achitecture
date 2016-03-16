@@ -192,12 +192,18 @@ class JsonController extends Controller
         //\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $product_all_list = Product::get_all_product();
+        $product_all_list_thumb = Product::get_all_thumb_product();
 
         $response = [];
 
         $response['product_list'] = $product_all_list;
 
         $fp = fopen('json/project_list.json', 'w');
+        fwrite($fp, \yii\helpers\Json::encode($response));
+        fclose($fp);
+        
+        $response['product_list'] = $product_all_list_thumb;
+        $fp = fopen('json/project_list_thumb.json', 'w');
         fwrite($fp, \yii\helpers\Json::encode($response));
         fclose($fp);
 

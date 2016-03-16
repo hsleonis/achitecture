@@ -12,10 +12,12 @@
 (function (angular) {
 
     // GLOBALS
-    var API = "http://dcastalia.com/projects/web/area/cms/administrator/json/";
+    var API = location.origin+"/projects/web/area/cms/administrator/json/";
     var detAPI = API + "project_detail.json";
+    var listAPI = API + "project_list.json";
     if ($(window).width() <= 1400) {
-            detAPI = API + "thumb_project_detail.json"
+            detAPI = API + "thumb_project_detail.json";
+            listAPI = API + "project_list_thumb.json";
     }
     var company = "ARCHITECT EMRAN & ASSOCIATES.";
     var landing = [];
@@ -89,7 +91,7 @@
                 $localStorage.menu = landing = response;
             });
         // Load project list
-        $http.post(API + "project_list.json", {})
+        $http.post(listAPI, {})
             .success(function (response) {
                 $localStorage.projects = projects = response.product_list;
                 $scope.projects = projects = $localStorage.projects;
@@ -110,7 +112,7 @@
         $scope.$parent.activeProjects = 0;
 
         if (!$localStorage.projects) {
-            $http.post(API + "project_list.json", {})
+            $http.post(listAPI, {})
                 .success(function (response) {
                     $localStorage.projects = projects = response.product_list;
                     $scope.projects = projects = $localStorage.projects;
@@ -186,7 +188,7 @@
         }
         //projects = $localStorage.projects;
         if (typeof $localStorage.projects==='undefined') {
-            $http.post(API + "project_list.json", {})
+            $http.post(listAPI, {})
                 .success(function (response) {
                     $scope.projects = $localStorage.projects = projects = response.product_list;
                     nav();
@@ -220,7 +222,7 @@
         }
         
         if (!$localStorage.projects) {
-            $http.post(API + "project_list.json", {})
+            $http.post(listAPI, {})
                 .success(function (response) {
                     $localStorage.projects = projects = response.product_list;
                     projects = $localStorage.projects;

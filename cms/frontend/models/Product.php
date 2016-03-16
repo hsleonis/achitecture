@@ -192,7 +192,7 @@ class Product extends \yii\db\ActiveRecord
 
         $options = [];
         $i = 0;
-        $product_list_r = Product::find()->joinWith('cat_rel')->orderBy('product_category_rel.sort_order desc')->all();
+        $product_listproduct_list_r = Product::find()->joinWith('cat_rel')->orderBy('product_category_rel.sort_order desc')->all();
 
         foreach($product_list_r as $key => $value){
 
@@ -229,6 +229,45 @@ class Product extends \yii\db\ActiveRecord
     }
 
 
+    public static function get_all_thumb_product(){
+
+        $options = [];
+        $i = 0;
+        $product_list_r = Product::find()->joinWith('cat_rel')->orderBy('product_category_rel.sort_order desc')->all();
+
+        foreach($product_list_r as $key => $value){
+
+            $options[$i]['project_id'] = self::product_data($value->id)->id;
+            $options[$i]['project_title'] = self::product_data($value->id)->title;
+            $options[$i]['project_slug'] = self::product_data($value->id)->slug;
+            //$options[$i]['project_status'] = self::product_data($value->id)->status;
+            $options[$i]['project_order'] = self::product_data($value->id)->sort_order;
+            $options[$i]['is_featured'] = self::product_data($value->id)->is_featured;
+
+            if(!empty($value->specification)){
+                foreach ($value->specification as $spec) {
+                    if($spec->item_name=='Location'){
+                        $options[$i]['project_location'] = $spec->item_val;
+                    }
+                }
+            }
+
+            if(!empty($value->image_by_banner_all)){
+                $j=0;
+                foreach ($value->image_by_banner_all as $banner) {
+                    if($j==0){
+                        $options[$i]['project_image'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/thumb/'.$banner->image;
+                    }
+                }
+            }
+
+            $options[$i]['project_type'] = $value->project_category_rel->category_name['cat_title'];
+            $options[$i]['project_category'] = $value->project_category_rel->project_category_category_self_rel['category_name']['cat_title'];
+            $i++;
+        }
+
+        return $options;
+    }
 
 
     public static function get_all_product_with_detail(){
@@ -242,6 +281,7 @@ class Product extends \yii\db\ActiveRecord
             $options[self::product_data($value->id)->slug]['id'] = self::product_data($value->id)->id;
             $options[self::product_data($value->id)->slug]['title'] = self::product_data($value->id)->title;
             $options[self::product_data($value->id)->slug]['slug'] = self::product_data($value->id)->slug;
+            $options[self::product_data($value->id)->slug]['short_desc'] = self::product_data($value->id)->short_desc;
             $options[self::product_data($value->id)->slug]['desc'] = self::product_data($value->id)->desc;
             //$options[self::product_data($value->id)->slug]['status'] = self::product_data($value->id)->status;
             $options[self::product_data($value->id)->slug]['project_order'] = self::product_data($value->id)->sort_order;
@@ -261,6 +301,7 @@ class Product extends \yii\db\ActiveRecord
                 foreach ($value->image_all as $banner) {
                     
                     $options[self::product_data($value->id)->slug]['images'][$j]['url'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/'.$banner->image;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['url_full'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/'.$banner->image;
                     $options[self::product_data($value->id)->slug]['images'][$j]['title'] = $banner->title;
                     $options[self::product_data($value->id)->slug]['images'][$j]['desc'] = $banner->desc;
                     $options[self::product_data($value->id)->slug]['images'][$j]['sort_order'] = $banner->sort_order;
@@ -299,6 +340,7 @@ class Product extends \yii\db\ActiveRecord
             $options[self::product_data($value->id)->slug]['id'] = self::product_data($value->id)->id;
             $options[self::product_data($value->id)->slug]['title'] = self::product_data($value->id)->title;
             $options[self::product_data($value->id)->slug]['slug'] = self::product_data($value->id)->slug;
+            $options[self::product_data($value->id)->slug]['short_desc'] = self::product_data($value->id)->short_desc;
             $options[self::product_data($value->id)->slug]['desc'] = self::product_data($value->id)->desc;
             //$options[self::product_data($value->id)->slug]['status'] = self::product_data($value->id)->status;
             $options[self::product_data($value->id)->slug]['project_order'] = self::product_data($value->id)->sort_order;
@@ -318,6 +360,7 @@ class Product extends \yii\db\ActiveRecord
                 foreach ($value->image_all as $banner) {
                     
                     $options[self::product_data($value->id)->slug]['images'][$j]['url'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/thumb/'.$banner->image;
+                    $options[self::product_data($value->id)->slug]['images'][$j]['url_full'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/'.$banner->image;
                     $options[self::product_data($value->id)->slug]['images'][$j]['title'] = $banner->title;
                     $options[self::product_data($value->id)->slug]['images'][$j]['desc'] = $banner->desc;
                     $options[self::product_data($value->id)->slug]['images'][$j]['sort_order'] = $banner->sort_order;

@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'sort_order',
                 'title',
                 'slug',
+                'short_desc',
                 'desc:html',
                 'status',
                 'createUserName',

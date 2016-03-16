@@ -58,7 +58,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'desc', 'status'], 'required'],
-            [['desc'], 'string'],
+            [['desc','short_desc'], 'string'],
             [['status', 'created_by', 'updated_by', 'sort_order', 'is_featured'], 'integer'],
             [['created_at', 'updated_at', 'slug'], 'safe'],
             [['title'], 'string', 'max' => 255]
@@ -83,7 +83,8 @@ class Product extends \yii\db\ActiveRecord
             'createUserName' => Yii::t('app', 'Created By'),
             'updateUserName' => Yii::t('app', 'Updated By'),
             'sort_order' => 'Sort Order',
-            'is_featured' => 'Is Featured?'
+            'is_featured' => 'Is Featured?',
+            'short_desc' => 'Short Description'
         ];
     }
 

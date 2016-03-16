@@ -17,7 +17,7 @@
 
         <div class="height-wrapper">
             <slick class="height-wrapper" currentIndex="1" dots="false" infinite="true" speed="1000" touch-move="true" arrows="true" settings="slickConfig" draggable="true" fade="true">
-                <div lightgallery class="project-image" data-ng-repeat="item in data=(project.images)" data-src="{{item.url}}">
+                <div lightgallery class="project-image" data-ng-repeat="item in data=(project.images)" data-src="{{item.url_full}}">
                     <img src="{{item.url}}" data-ng-image-load-animation="" />
                 </div>
             </slick>
@@ -27,9 +27,9 @@
     <div id="info-wrapper">
         <div class="info-menu-wrapper">
             <ul class="info-menu">
-                <li>{{title|uppercase}}</li>
+                <li bind-unsafe-html="project.short_desc"></li>
                 <!--<li>{{featDetails|uppercase}},</li>-->
-                <li>[ {{project.specification[0].item_val|uppercase}} ]</li>
+                <!--<li>[ {{project.specification[0].item_val|uppercase}} ]</li>-->
             </ul>
         </div>
         <!--/.info-menu-wrapper-->

@@ -74,6 +74,7 @@ use backend\models\ProductCategory;
         </div>
         
         <div class="col-md-8">
+            <?= $form->field($model, 'short_desc')->textArea(['col' => 2,'id'=>'editor123']) ?>
             <?= $form->field($model, 'desc')->textArea(['rows' => '6','id'=>'editor']) ?>
 
             <?= Html::submitButton('Create', ['class' => 'btn btn-success']) ?>
@@ -96,6 +97,16 @@ use backend\models\ProductCategory;
             
             CKEDITOR.replace( "editor", {
                  customConfig: "'.Url::base().'/ckeditor/config/'.Yii::$app->params["editor"].'/config.js",
+                 filebrowserBrowseUrl: "kcfinder/browse.php?type=files",
+                 filebrowserImageBrowseUrl: "kcfinder/browse.php?type=images",
+                 filebrowserFlashBrowseUrl: "kcfinder/browse.php?type=flash",
+                 filebrowserUploadUrl: "kcfinder/upload.php?type=files",
+                 filebrowserImageUploadUrl: "kcfinder/upload.php?type=images",
+                 filebrowserFlashUploadUrl: "kcfinder/upload.php?type=flash"
+            });
+            
+            CKEDITOR.replace( "editor123", {
+                 customConfig: "'.Url::base().'/ckeditor/config/basic/config.js",
                  filebrowserBrowseUrl: "kcfinder/browse.php?type=files",
                  filebrowserImageBrowseUrl: "kcfinder/browse.php?type=images",
                  filebrowserFlashBrowseUrl: "kcfinder/browse.php?type=flash",

@@ -737,8 +737,6 @@ span.highlighted{
     padding-right: 15px;
     font-size: 11px;
     line-height: 14.2px;
-    text-align: justify;
-    text-transform: uppercase;
     padding: 0 35px 0 25px;
     cursor: default;
 }

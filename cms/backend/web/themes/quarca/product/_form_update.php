@@ -66,6 +66,7 @@ $this->registerJsFile(Url::base()."/files/html.sortable_product_image.js", ['dep
 
                           <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
                           <?= $form->field($model, 'slug')->textInput(['maxlength' => 255]) ?>
+                          <?= $form->field($model, 'short_desc')->textArea(['col' => 2]) ?>
                       
                           <?= $form->field($model, 'sort_order')->textInput(['maxlength' => 255]) ?>
 
@@ -106,6 +107,7 @@ $this->registerJsFile(Url::base()."/files/html.sortable_product_image.js", ['dep
                   </div>
                   
                   <div class="col-md-8">
+                      <?= $form->field($model, 'short_desc')->textArea(['col' => 2,'id'=>'editor123']) ?>
                       <?= $form->field($model, 'desc')->textArea(['rows' => '6','id'=>'editor']) ?>
 
                       <?= Html::submitButton('Update', ['class' => 'btn btn-primary']) ?>
@@ -758,6 +760,16 @@ $this->registerJsFile(Url::base()."/files/html.sortable_product_image.js", ['dep
             
             CKEDITOR.replace( 'editor', {
                  customConfig: '".Url::base()."/ckeditor/config/".Yii::$app->params['editor']."/config.js',
+                 filebrowserBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=files',
+                 filebrowserImageBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=images',
+                 filebrowserFlashBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=flash',
+                 filebrowserUploadUrl: '".Url::base()."/kcfinder/upload.php?type=files',
+                 filebrowserImageUploadUrl: '".Url::base()."/kcfinder/upload.php?type=images',
+                 filebrowserFlashUploadUrl: '".Url::base()."/kcfinder/upload.php?type=flash',
+            });
+            
+            CKEDITOR.replace( 'editor123', {
+                 customConfig: '".Url::base()."/ckeditor/config/basic/config.js',
                  filebrowserBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=files',
                  filebrowserImageBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=images',
                  filebrowserFlashBrowseUrl: '".Url::base()."/kcfinder/browse.php?type=flash',
